@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Terminal, Copy, Check, CornerDownLeft, Sparkles, Bot } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
+import ScrollVelocity from "@/components/UI/ScrollVelocity";
 
 export const DeveloperTerminal: React.FC = () => {
   const [history, setHistory] = useState<Array<{ cmd: string; output: string }>>([
@@ -99,6 +100,18 @@ export const DeveloperTerminal: React.FC = () => {
             </button>
           ))}
         </motion.div>
+
+        {/* Dynamic Velocity Tech Marquee */}
+        <div className="py-2 overflow-hidden border-y border-white/5 bg-gradient-to-r from-cyan-500/5 via-blue-500/10 to-cyan-500/5 rounded-2xl backdrop-blur-sm">
+          <ScrollVelocity
+            texts={[
+              "PYTORCH • LANGGRAPH • FASTAPI • OPENCV • CHROMADB • DOCKER •",
+              "AGENTIC MULTI-AGENT SWARMS • REAL-TIME INFERENCE • N8N AUTOMATIONS •"
+            ]}
+            velocity={28}
+            className="text-white/15 hover:text-cyan-400/50 transition-colors font-mono tracking-widest font-extrabold uppercase text-lg sm:text-2xl md:text-3xl py-1"
+          />
+        </div>
 
         {/* Terminal Window Box */}
         <motion.div

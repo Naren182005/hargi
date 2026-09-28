@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trophy, Award, Sparkles, X, ZoomIn, CheckCircle, Flame, Users, IndianRupee, ShieldCheck, ArrowUpRight } from "lucide-react";
+import ScrollVelocity from "@/components/UI/ScrollVelocity";
 
 export interface HackathonItem {
   id: string;
@@ -135,6 +136,18 @@ export const HackathonShowcase: React.FC = () => {
           >
             From ₹10 Lakh government seed funding to 1st place hackathon championships among 1,500+ teams. Click any photo to expand the verified victory poster and story.
           </motion.p>
+        </div>
+
+        {/* Dynamic Velocity Marquee Banner */}
+        <div className="py-2 overflow-hidden border-y border-white/5 bg-gradient-to-r from-amber-500/5 via-orange-500/10 to-amber-500/5 rounded-2xl backdrop-blur-sm">
+          <ScrollVelocity
+            texts={[
+              "7× HACKATHON CHAMPION • 5 CONTINUOUS WIN STREAK • ₹10 LAKH SEED FUND •",
+              "STARTUPTN 5TH RANK • HACK IT ON '25 WINNER • FESTRONIX '24 PODIUM •"
+            ]}
+            velocity={30}
+            className="text-white/20 hover:text-amber-400/50 transition-colors font-mono tracking-widest font-extrabold uppercase text-xl sm:text-3xl md:text-4xl py-1"
+          />
         </div>
 
         {/* 4-Card Grid with Posters & Stories */}
