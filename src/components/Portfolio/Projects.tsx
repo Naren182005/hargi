@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import { Play, ArrowUpRight, Bot, Terminal, ShieldCheck, Sparkles, Code2, ExternalLink, Cpu } from "lucide-react";
 import { PORTFOLIO_DATA, Project, ProjectType } from "@/data/portfolio";
 import { ProjectModal } from "@/components/UI/ProjectModal";
@@ -11,6 +11,22 @@ export const Projects: React.FC = () => {
   const { mode } = usePortfolioMode();
   const [filter, setFilter] = useState<"all" | "ai" | "code">("all");
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<Project | null>(null);
+  
+  const containerRef = useRef<HTMLElement>(null);
+  const shouldReduceMotion = useReducedMotion();
+
+  // Scroll progress animation behavior (smooth offset-to-natural settlement)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "center center"],
+  });
+
+  const headerY = useTransform(scrollYProgress, [0, 0.7], [shouldReduceMotion ? 0 : 50, 0]);
+  const headerOpacity = useTransform(scrollYProgress, [0, 0.6], [shouldReduceMotion ? 1 : 0.2, 1]);
+  const headerScale = useTransform(scrollYProgress, [0, 0.7], [shouldReduceMotion ? 1 : 0.97, 1]);
+
+  const gridY = useTransform(scrollYProgress, [0.15, 0.9], [shouldReduceMotion ? 0 : 60, 0]);
+  const gridOpacity = useTransform(scrollYProgress, [0.15, 0.8], [shouldReduceMotion ? 1 : 0.25, 1]);
 
   // Sync filter when global mode changes
   useEffect(() => {
@@ -27,6 +43,7 @@ export const Projects: React.FC = () => {
 
   return (
     <section
+      ref={containerRef}
       id="projects"
       className="relative z-20 min-h-screen bg-[#050505] px-6 py-24 sm:px-12 md:px-20 lg:px-28"
     >
@@ -35,7 +52,10 @@ export const Projects: React.FC = () => {
 
       <div className="relative mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-14 space-y-4">
+        <motion.div
+          style={{ y: headerY, opacity: headerOpacity, scale: headerScale }}
+          className="mb-14 space-y-4"
+        >
           <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/30 bg-brand-orange/10 px-3.5 py-1 text-xs font-mono uppercase tracking-widest text-brand-orange backdrop-blur-md">
             <Sparkles className="h-3.5 w-3.5" />
             <span>04 / Selected AI & Engineering Works</span>
@@ -89,10 +109,14 @@ export const Projects: React.FC = () => {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Dynamic Card Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <motion.div
+          layout
+          style={{ y: gridY, opacity: gridOpacity }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
           <AnimatePresence>
             {filteredProjects.map((project, idx) => {
               const isAI = project.type === "ai" || project.type === "video";

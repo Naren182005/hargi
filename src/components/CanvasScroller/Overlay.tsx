@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, MotionValue, useTransform, useScroll } from "framer-motion";
-import { ArrowDown, Sparkles, Bot, Terminal, Layers, Cpu, Code2, Network } from "lucide-react";
+import { ArrowDown, Sparkles, Bot, Terminal, Layers, Cpu, Code2, Network, Trophy, Award, ShoppingBag, ExternalLink, Globe, Zap } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
 import { useScrolly } from "./ScrollyCanvas";
 
@@ -23,7 +23,7 @@ export const Overlay: React.FC<OverlayProps> = ({
   const s1Y = useTransform(scrollYProgress, [0, 0.22], [0, -90]);
   const s1Scale = useTransform(scrollYProgress, [0, 0.22], [1, 0.94]);
 
-  // Section 2: AI & Deep Learning World (25% to ~48%)
+  // Section 2: AI & Deep Learning Discipline / 7x Hackathon Winner (25% to ~48%)
   const s2Opacity = useTransform(
     scrollYProgress,
     [0.22, 0.28, 0.44, 0.50],
@@ -35,7 +35,7 @@ export const Overlay: React.FC<OverlayProps> = ({
     [60, 0, 0, -60]
   );
 
-  // Section 3: Full Stack & Automation World (52% to ~74%)
+  // Section 3: GLOW 24 Brand & Full Stack Platform (52% to ~74%)
   const s3Opacity = useTransform(
     scrollYProgress,
     [0.50, 0.56, 0.70, 0.76],
@@ -136,73 +136,79 @@ export const Overlay: React.FC<OverlayProps> = ({
       </motion.div>
 
       {/* ============================================================ */}
-      {/* SECTION 2: ~30% Scroll - AI & Deep Learning Discipline (Left)*/}
+      {/* SECTION 2: ~30% Scroll - 7X Hackathon Winner & Streak (Left) */}
       {/* ============================================================ */}
       <motion.div
         style={{ opacity: s2Opacity, y: s2Y }}
         className="absolute inset-0 flex items-center justify-start px-6 sm:px-12 md:px-20 lg:px-28"
       >
         <div className="max-w-2xl space-y-6">
-          <div className="inline-flex items-center gap-2 rounded-full border border-red-500/40 bg-red-500/10 px-3.5 py-1 text-xs font-mono uppercase tracking-widest text-red-400 backdrop-blur-md">
-            <Bot className="h-3.5 w-3.5" />
-            <span>01 / Deep Learning & Computer Vision</span>
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-3.5 py-1 text-xs font-mono uppercase tracking-widest text-amber-400 backdrop-blur-md">
+            <Trophy className="h-3.5 w-3.5 text-amber-400" />
+            <span>01 / Hackathon Track Record & Victories</span>
           </div>
 
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.05] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
-            TURNING DATA <br />
-            <span className="text-gradient-fire">INTO INTELLIGENCE.</span>
+            7× HACKATHON <br />
+            <span className="text-gradient-fire">WINNER & CHAMPION.</span>
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl text-neutral-300 font-light leading-relaxed max-w-xl">
-            Designing real-time Computer Vision models and Agentic AI architectures. From in-flight behavioral proctoring with gaze & lip-sync tracking at Payoda Technologies to 5+ deployed Hugging Face agents.
+            Proven competitive engineering track record with a relentless <span className="text-amber-400 font-semibold">streak of 5 continuous hackathon wins</span>. Backed by a ₹10 Lakh Government Seed Fund, 1st Place Championships, and national podium finishes among 1,500+ teams.
           </p>
 
-          {/* Mini Neural Inference Flow Graphic */}
-          <div className="glass-card rounded-xl p-4 border border-red-500/20 max-w-lg space-y-2">
-            <div className="flex items-center justify-between text-[11px] font-mono text-neutral-400">
-              <span className="flex items-center gap-1.5 text-red-400">
-                <Network className="h-3 w-3" />
-                <span>REAL-TIME INFERENCE STREAM [ &lt;25ms ]</span>
+          {/* Hackathon Streak & Victory Dashboard Card */}
+          <div className="glass-card rounded-xl p-4 border border-amber-500/30 max-w-lg space-y-2.5">
+            <div className="flex items-center justify-between text-[11px] font-mono text-neutral-300">
+              <span className="flex items-center gap-1.5 text-amber-400 font-bold">
+                <Zap className="h-3.5 w-3.5 text-amber-400" />
+                <span>UNBROKEN STREAK: 5 CONTINUOUS WINS 🔥</span>
               </span>
-              <span>AGENTS: 5+ PROD</span>
+              <span className="text-red-400 font-bold">7 WINS TOTAL</span>
             </div>
-            {/* Neural Layer Indicators */}
-            <div className="h-4 bg-neutral-900 rounded flex gap-1 p-0.5 overflow-hidden">
-              <div className="h-full w-1/4 bg-red-600/80 rounded-sm" title="PyTorch Backbone" />
-              <div className="h-full w-2/5 bg-brand-orange/80 rounded-sm" title="YOLO / MediaPipe" />
-              <div className="h-full w-1/3 bg-amber-500/80 rounded-sm" title="LangGraph State" />
-            </div>
-            {/* Real-time Tensor Stream Visualizer */}
-            <div className="h-3 bg-neutral-900 rounded flex gap-0.5 p-0.5 items-center overflow-hidden">
-              {Array.from({ length: 24 }).map((_, i) => (
-                <span
-                  key={i}
-                  style={{ height: `${(i % 5 + 2) * 20}%` }}
-                  className="w-1 bg-cyan-500/60 rounded-full"
-                />
+            
+            {/* Visual Win Streak Indicators */}
+            <div className="grid grid-cols-3 sm:grid-cols-5 gap-1 sm:gap-1.5 py-1">
+              {[
+                { title: "HACK IT ON '25", place: "1st Place" },
+                { title: "StartupTN Govt", place: "₹10L Seed" },
+                { title: "FESTRONIX '25", place: "3rd Place" },
+                { title: "HACKATHRONE", place: "Top 10 Nat." },
+                { title: "KGISL Hack", place: "Winner" },
+              ].map((win, i) => (
+                <div key={i} className="bg-neutral-900/90 border border-amber-500/30 rounded-md p-1 sm:p-1.5 text-center flex flex-col justify-center">
+                  <span className="text-[9px] sm:text-[10px] font-mono text-amber-400 font-bold leading-tight">{win.place}</span>
+                  <span className="text-[7.5px] sm:text-[8px] text-neutral-400 truncate mt-0.5">{win.title}</span>
+                </div>
               ))}
+            </div>
+
+            {/* Sub metric */}
+            <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400 pt-1 border-t border-white/5">
+              <span>GOVERNMENT SEED GRANT: ₹10 LAKH</span>
+              <span>1,500+ TEAMS SURPASSED</span>
             </div>
           </div>
 
           <div className="flex flex-wrap gap-3 pt-2">
-            <div className="glass-card flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-mono text-neutral-200">
+            <div className="glass-card flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-mono text-neutral-200 border border-amber-500/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-400" />
+              <span>5 Continuous Win Streak</span>
+            </div>
+            <div className="glass-card flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-mono text-neutral-200 border border-red-500/20">
               <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
-              <span>Gaze Tracking & Lip-Sync AI</span>
+              <span>₹10 Lakh StartupTN Seed Fund</span>
             </div>
-            <div className="glass-card flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-mono text-neutral-200">
-              <span className="h-1.5 w-1.5 rounded-full bg-brand-orange" />
-              <span>LangChain & LangGraph Agents</span>
-            </div>
-            <div className="glass-card flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-mono text-neutral-200">
-              <span className="h-1.5 w-1.5 rounded-full bg-white" />
-              <span>Chroma DB RAG Vectors</span>
+            <div className="glass-card flex items-center gap-2 rounded-lg px-4 py-2 text-xs font-mono text-neutral-200 border border-cyan-500/20">
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400" />
+              <span>1st Place Champion — HACK IT ON</span>
             </div>
           </div>
         </div>
       </motion.div>
 
       {/* ============================================================ */}
-      {/* SECTION 3: ~60% Scroll - Automation & Full Stack (Right)     */}
+      {/* SECTION 3: ~60% Scroll - GLOW 24 Brand & Platform (Right)    */}
       {/* ============================================================ */}
       <motion.div
         style={{ opacity: s3Opacity, y: s3Y }}
@@ -210,34 +216,47 @@ export const Overlay: React.FC<OverlayProps> = ({
       >
         <div className="max-w-2xl space-y-6 flex flex-col items-end">
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-3.5 py-1 text-xs font-mono uppercase tracking-widest text-cyan-400 backdrop-blur-md">
-            <Terminal className="h-3.5 w-3.5" />
-            <span>02 / Automation & Full Stack Systems</span>
+            <ShoppingBag className="h-3.5 w-3.5" />
+            <span>02 / Founder & Architect — GLOW 24</span>
           </div>
 
           <h2 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-white leading-[1.05] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]">
-            BUILDING AUTONOMOUS <br />
-            <span className="text-cyan-400">SCALABLE WORKFLOWS.</span>
+            MY OWN BRAND <br />
+            <span className="text-cyan-400">GLOW 24 WEBSITE.</span>
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl text-neutral-300 font-light leading-relaxed max-w-xl text-right">
-            High-performance backend architectures, microservices, and autonomous n8n workflows. Python, FastAPI, Angular, PostgreSQL, MongoDB, and vector stores integrated seamlessly.
+            Engineered and deployed the production platform for my hair & skincare brand <span className="text-cyan-300 font-medium">GLOW 24</span>. Built with a high-performance frontend, real-time analytics dashboard, and dual-database architecture for seamless customer transactions.
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-md pt-2">
             <div className="glass-card p-3.5 rounded-xl text-left border border-cyan-500/30 hover:border-cyan-400 transition-colors">
               <div className="flex items-center gap-2 text-cyan-400 mb-1">
-                <Code2 className="h-4 w-4" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-white">FastAPI & Python</span>
+                <Globe className="h-4 w-4" />
+                <span className="text-xs font-semibold uppercase tracking-wider text-white">Live Brand Platform</span>
               </div>
-              <p className="text-[11px] text-neutral-400">Async high-throughput endpoints, Pydantic validation & ML model serving.</p>
+              <p className="text-[11px] text-neutral-400">High-speed e-commerce UI with dynamic product showcase and responsive user checkout.</p>
             </div>
             <div className="glass-card p-3.5 rounded-xl text-left border border-cyan-500/30 hover:border-cyan-400 transition-colors">
               <div className="flex items-center gap-2 text-cyan-400 mb-1">
                 <Terminal className="h-4 w-4" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-white">n8n & Multi-DB</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-white">Multi-DB & Admin Center</span>
               </div>
-              <p className="text-[11px] text-neutral-400">PostgreSQL, MongoDB, Chroma DB vectors, and autonomous webhook automation.</p>
+              <p className="text-[11px] text-neutral-400">PostgreSQL + MongoDB integrated for real-time stock control and order processing.</p>
             </div>
+          </div>
+
+          {/* Quick External Link & Tags */}
+          <div className="flex flex-wrap gap-2 justify-end pt-1">
+            <a
+              href="https://glow202425.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pointer-events-auto inline-flex items-center gap-1.5 rounded-lg border border-cyan-500/50 bg-cyan-500/15 px-3 py-1.5 text-xs font-mono font-medium text-cyan-300 transition-colors hover:bg-cyan-500/30"
+            >
+              <span>Visit glow202425.vercel.app</span>
+              <ExternalLink className="h-3 w-3" />
+            </a>
           </div>
         </div>
       </motion.div>
