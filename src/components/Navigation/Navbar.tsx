@@ -9,13 +9,45 @@ export const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("scrolly-section");
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 40);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Scroll-based Active Section Detection using IntersectionObserver
+    const sectionIds = [
+      "scrolly-section",
+      "projects",
+      "hackathons",
+      "terminal",
+      "international-projects",
+      "experience",
+      "contact",
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-25% 0px -40% 0px", threshold: 0.1 }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
+    };
   }, []);
 
   // Close modal on Escape key
@@ -28,13 +60,13 @@ export const Navbar: React.FC = () => {
   }, []);
 
   const navItems = [
-    { label: "Story", href: "#scrolly-section" },
-    { label: "Projects", href: "#projects" },
-    { label: "Hackathons", href: "#hackathons" },
-    { label: "Terminal", href: "#terminal" },
-    { label: "International Project", href: "#international-projects" },
-    { label: "Journey", href: "#experience" },
-    { label: "Contact", href: "#contact" },
+    { label: "Story", href: "#scrolly-section", id: "scrolly-section" },
+    { label: "Projects", href: "#projects", id: "projects" },
+    { label: "Hackathons", href: "#hackathons", id: "hackathons" },
+    { label: "Terminal", href: "#terminal", id: "terminal" },
+    { label: "International Project", href: "#international-projects", id: "international-projects" },
+    { label: "Journey", href: "#experience", id: "experience" },
+    { label: "Contact", href: "#contact", id: "contact" },
   ];
 
   return (
@@ -66,17 +98,24 @@ export const Navbar: React.FC = () => {
             </span>
           </div>
 
-          {/* Desktop Links with International Project */}
-          <div className="hidden md:flex items-center gap-4 lg:gap-5 text-xs font-mono text-neutral-300">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="transition-colors hover:text-brand-orange whitespace-nowrap"
-              >
-                {item.label}
-              </a>
-            ))}
+          {/* Desktop Links with Active Section Indicator */}
+          <div className="hidden md:flex items-center gap-3 lg:gap-4 text-xs font-mono text-neutral-300">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={`relative px-2.5 py-1 rounded-full transition-all whitespace-nowrap ${
+                    isActive
+                      ? "text-brand-orange font-semibold bg-brand-orange/10 shadow-[0_0_12px_rgba(255,77,0,0.25)]"
+                      : "text-neutral-300 hover:text-brand-orange"
+                  }`}
+                >
+                  {item.label}
+                </a>
+              );
+            })}
           </div>
 
           {/* Controls: Resume PDF Preview Button */}

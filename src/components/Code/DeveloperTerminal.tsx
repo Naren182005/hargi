@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { Terminal, Copy, Check, CornerDownLeft, Sparkles, Bot } from "lucide-react";
 import { PORTFOLIO_DATA } from "@/data/portfolio";
 
@@ -56,17 +57,37 @@ export const DeveloperTerminal: React.FC = () => {
             <span>Interactive Terminal Interface</span>
           </div>
 
-          <h3 className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase font-display">
-            Developer <span className="text-cyan-400">Terminal.</span>
-          </h3>
+          <div className="overflow-hidden">
+            <motion.h3
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase font-display"
+            >
+              Developer <span className="text-cyan-400">Terminal.</span>
+            </motion.h3>
+          </div>
 
-          <p className="text-sm sm:text-base text-neutral-400 font-light max-w-xl">
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="text-sm sm:text-base text-neutral-400 font-light max-w-xl"
+          >
             Query system specs, deep learning models, hackathon victories, and academic background directly via the shell. Click a quick command or type below.
-          </p>
+          </motion.p>
         </div>
 
         {/* Quick Command Pills */}
-        <div className="flex flex-wrap items-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          className="flex flex-wrap items-center gap-2"
+        >
           <span className="text-xs font-mono text-neutral-500 mr-2">Quick run:</span>
           {["whoami", "skills", "projects", "education", "experience", "achievements", "certifications", "contact", "clear"].map((cmd) => (
             <button
@@ -77,10 +98,16 @@ export const DeveloperTerminal: React.FC = () => {
               $ {cmd}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Terminal Window Box */}
-        <div className="rounded-2xl border border-white/15 bg-[#080808] shadow-[0_0_50px_rgba(0,229,255,0.08)] overflow-hidden font-mono text-xs sm:text-sm">
+        <motion.div
+          initial={{ opacity: 0, y: 45, scale: 0.96 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          className="rounded-2xl border border-white/15 bg-[#080808] shadow-[0_0_50px_rgba(0,229,255,0.08)] overflow-hidden font-mono text-xs sm:text-sm"
+        >
           {/* Terminal Window Bar */}
           <div className="flex items-center justify-between border-b border-white/10 bg-neutral-950 px-4 py-3">
             <div className="flex items-center gap-2">
@@ -129,7 +156,7 @@ export const DeveloperTerminal: React.FC = () => {
               </button>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

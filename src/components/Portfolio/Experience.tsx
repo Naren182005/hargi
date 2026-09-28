@@ -21,12 +21,27 @@ export const Experience: React.FC = () => {
             <span>07 / Journey & Accolades</span>
           </div>
 
-          <h2 className="text-4xl sm:text-6xl font-black tracking-tight text-white uppercase font-display">
-            Experience & <span className="text-gradient-orange">Milestones.</span>
-          </h2>
-          <p className="max-w-2xl text-base text-neutral-400 font-light leading-relaxed">
+          <div className="overflow-hidden">
+            <motion.h2
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-6xl font-black tracking-tight text-white uppercase font-display"
+            >
+              Experience & <span className="text-gradient-orange">Milestones.</span>
+            </motion.h2>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="max-w-2xl text-base text-neutral-400 font-light leading-relaxed"
+          >
             From training enterprise computer vision models at Payoda Technologies to national hackathon championships and academic excellence.
-          </p>
+          </motion.p>
         </div>
 
         {/* Section Navigation Tabs */}

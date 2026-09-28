@@ -24,13 +24,27 @@ export const InternationalProjects: React.FC = () => {
             <span>Global Academic Exchange & Immersion</span>
           </div>
 
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white uppercase font-display leading-[1.05]">
-            International <span className="text-cyan-400">Projects.</span>
-          </h2>
+          <div className="overflow-hidden">
+            <motion.h2
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white uppercase font-display leading-[1.05]"
+            >
+              International <span className="text-cyan-400">Projects.</span>
+            </motion.h2>
+          </div>
 
-          <p className="text-sm sm:text-base text-neutral-400 font-light leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="text-sm sm:text-base text-neutral-400 font-light leading-relaxed"
+          >
             Representing Sri Eshwar College of Engineering on the global stage. From international research at Telkom University (GLOW 2025) to faculty mentorship and cross-border tech prototyping.
-          </p>
+          </motion.p>
         </div>
 
         {/* 5-Card Layout Grid */}
@@ -40,10 +54,10 @@ export const InternationalProjects: React.FC = () => {
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.08, duration: 0.5 }}
+                initial={{ opacity: 0, y: 50, scale: 0.94 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: idx * 0.1, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
                 className={`glass-card group rounded-2xl border border-white/10 overflow-hidden flex flex-col justify-between hover:border-cyan-400/50 hover:shadow-[0_0_40px_rgba(0,229,255,0.15)] transition-all duration-500 bg-[#080808]/90 ${
                   isFeatured ? "md:col-span-2 lg:col-span-2" : ""
                 }`}

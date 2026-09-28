@@ -18,12 +18,28 @@ export const Philosophy: React.FC = () => {
             <Sparkles className="h-3.5 w-3.5" />
             <span>06 / Engineering Philosophy</span>
           </div>
-          <h3 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight">
-            “AUTONOMOUS INTELLIGENCE. SCALABLE SYSTEMS. LIMITLESS INNOVATION.”
-          </h3>
-          <p className="text-base sm:text-xl text-neutral-400 font-light leading-relaxed">
+          
+          <div className="overflow-hidden">
+            <motion.h3
+              initial={{ y: 60, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight"
+            >
+              “AUTONOMOUS INTELLIGENCE. SCALABLE SYSTEMS. LIMITLESS INNOVATION.”
+            </motion.h3>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-base sm:text-xl text-neutral-400 font-light leading-relaxed"
+          >
             Neural Models × Agentic Swarms on the inference layer. Scalable APIs × Databases × Automations in the backend. Well-tuned models deliver unprecedented intelligence; robust engineering creates lasting real-world impact.
-          </p>
+          </motion.p>
         </div>
 
         {/* Highlight Stats Bar */}
@@ -31,10 +47,10 @@ export const Philosophy: React.FC = () => {
           {PORTFOLIO_DATA.stats.map((stat, idx) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              transition={{ delay: idx * 0.12, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="space-y-1.5"
             >
               <div className="text-4xl sm:text-5xl font-black font-display text-gradient-orange">

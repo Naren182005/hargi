@@ -114,13 +114,27 @@ export const HackathonShowcase: React.FC = () => {
             <span>Championships & Venture Grants</span>
           </div>
 
-          <h2 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white uppercase font-display leading-[1.05]">
-            Hackathon <span className="text-gradient-orange">Victories.</span>
-          </h2>
+          <div className="overflow-hidden">
+            <motion.h2
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white uppercase font-display leading-[1.05]"
+            >
+              Hackathon <span className="text-gradient-orange">Victories.</span>
+            </motion.h2>
+          </div>
 
-          <p className="text-sm sm:text-base text-neutral-400 font-light leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-sm sm:text-base text-neutral-400 font-light leading-relaxed"
+          >
             From ₹10 Lakh government seed funding to 1st place hackathon championships among 1,500+ teams. Click any photo to expand the verified victory poster and story.
-          </p>
+          </motion.p>
         </div>
 
         {/* 4-Card Grid with Posters & Stories */}
@@ -128,10 +142,10 @@ export const HackathonShowcase: React.FC = () => {
           {HACKATHON_DATA.map((item, idx) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1, duration: 0.5 }}
+              initial={{ opacity: 0, y: 50, scale: 0.94 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ delay: idx * 0.12, duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               className="glass-card group rounded-2xl border border-white/10 overflow-hidden flex flex-col justify-between hover:border-amber-500/50 hover:shadow-[0_0_40px_rgba(245,158,11,0.15)] transition-all duration-500 bg-[#080808]/90"
             >
               {/* Poster Image Container */}

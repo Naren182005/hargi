@@ -36,17 +36,38 @@ export const Contact: React.FC = () => {
         </div>
 
         <div className="space-y-4">
-          <h2 className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight text-white uppercase font-display leading-[1.05]">
-            LET’S BUILD <br />
-            <span className="text-gradient-fire">INTELLIGENT SYSTEMS.</span>
-          </h2>
-          <p className="mx-auto max-w-2xl text-base sm:text-xl text-neutral-400 font-light leading-relaxed">
+          <div className="overflow-hidden">
+            <motion.h2
+              initial={{ y: 60, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="text-4xl sm:text-6xl md:text-8xl font-black tracking-tight text-white uppercase font-display leading-[1.05]"
+            >
+              LET’S BUILD <br />
+              <span className="text-gradient-fire">INTELLIGENT SYSTEMS.</span>
+            </motion.h2>
+          </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mx-auto max-w-2xl text-base sm:text-xl text-neutral-400 font-light leading-relaxed"
+          >
             Looking for an AI / ML Developer, Deep Learning specialist, or Automation Engineer for your engineering team or high-impact project? Let&apos;s connect.
-          </p>
+          </motion.p>
         </div>
 
         {/* Contact Pill Buttons: Email & Phone */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+        >
           <button
             onClick={handleCopyEmail}
             className="group flex items-center gap-3 rounded-full border border-white/20 bg-neutral-900/80 px-8 py-4 font-mono text-sm sm:text-base text-white backdrop-blur-md transition-all duration-300 hover:border-brand-orange hover:bg-neutral-800 hover:shadow-[0_0_35px_rgba(255,77,0,0.3)]"
@@ -75,7 +96,7 @@ export const Contact: React.FC = () => {
           >
             Send Email
           </a>
-        </div>
+        </motion.div>
 
         {(copiedEmail || copiedPhone) && (
           <motion.div
