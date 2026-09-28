@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Globe, MapPin, Calendar, Sparkles, X, ZoomIn, CheckCircle2, Award, Users, BookOpen } from "lucide-react";
 import { PORTFOLIO_DATA, InternationalProjectItem } from "@/data/portfolio";
+import { ScrollVelocity } from "@/components/UI/ScrollVelocity";
 
 export const InternationalProjects: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<InternationalProjectItem | null>(null);
@@ -45,6 +46,18 @@ export const InternationalProjects: React.FC = () => {
           >
             Representing Sri Eshwar College of Engineering on the global stage. From international research at Telkom University (GLOW 2025) to faculty mentorship and cross-border tech prototyping.
           </motion.p>
+        </div>
+
+        {/* Dynamic React Bits Scroll Velocity Marquee */}
+        <div className="w-full py-2 overflow-hidden border-y border-white/5 bg-neutral-950/40 backdrop-blur-sm">
+          <ScrollVelocity
+            texts={[
+              "GLOW 2025 • TELKOM UNIVERSITY INDONESIA • GLOBAL LEARNING WEEK •",
+              "CROSS-BORDER RESEARCH • FACULTY COLLABORATION • TECH IMMERSION •"
+            ]}
+            velocity={35}
+            className="text-white/10 hover:text-cyan-400/40 transition-colors font-display tracking-wider font-extrabold uppercase text-2xl sm:text-4xl md:text-5xl"
+          />
         </div>
 
         {/* 5-Card Layout Grid */}
