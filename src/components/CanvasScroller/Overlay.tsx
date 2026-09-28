@@ -74,23 +74,8 @@ export const Overlay: React.FC<OverlayProps> = ({
         style={{ opacity: s1Opacity, y: s1Y, scale: s1Scale }}
         className="absolute inset-0 flex flex-col items-center justify-between py-12 md:py-16 px-6 text-center"
       >
-        {/* Top Status & HUD */}
-        <div className="pt-14 md:pt-10 flex flex-wrap items-center justify-center gap-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-brand-orange/40 bg-black/60 px-4 py-1.5 backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-orange opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-orange" />
-            </span>
-            <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-300">
-              {PORTFOLIO_DATA.hero.status}
-            </span>
-          </div>
-
-          <div className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-mono text-neutral-400 backdrop-blur-md">
-            <span className="text-cyan-400 font-bold">STATUS ●</span>
-            <span>{PORTFOLIO_DATA.hero.timecode}</span>
-          </div>
-        </div>
+        {/* Top spacer for clean vertical balance */}
+        <div className="pt-6" />
 
         {/* Center Editorial Title */}
         <div className="max-w-4xl space-y-4 my-auto">

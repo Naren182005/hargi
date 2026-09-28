@@ -1,5 +1,3 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
 # dependencies
 /node_modules
 /.pnp
@@ -9,18 +7,21 @@
 # testing
 /coverage
 
-# next.js
+# next.js & build outputs
 /.next/
 /out/
-
-# production
 /build
+/dist
+/.turbo
 
-# misc
+# misc & OS
 .DS_Store
+Thumbs.db
+desktop.ini
 *.pem
 
-# debug
+# debug & logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -35,12 +36,33 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# raw extracted assets & archives
-ezgif-44926d411c835299-png-split/
+# Python & virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+
+# IDE & Editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# raw source assets & archives
+/image/
+/images/
+naren portfolio/
 zip/
 *.zip
+ezgif-44926d411c835299-png-split/
 
-# temporary files
+# temporary sequence & test files
 test*.jpg
 test*.webp
 temp_*.jpg
+public/sequence/ezgif-*.jpg
