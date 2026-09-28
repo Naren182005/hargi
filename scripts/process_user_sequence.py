@@ -20,6 +20,30 @@ def remove_old_sequence():
     os.makedirs(DEST_DIR, exist_ok=True)
     print("Old sequence files cleaned successfully.")
 
+def remove_watermark(cv_img):
+    """
+    Detects and seamlessly inpaints the Gemini sparkle watermark in the bottom-right region.
+    """
+    h, w, _ = cv_img.shape
+    # Bottom right ROI where watermark is located
+    y1, y2 = h - 250, h - 40
+    x1, x2 = w - 250, w - 40
+    
+    roi = cv_img[y1:y2, x1:x2]
+    gray = cv2.cvtColor(roi, cv2.COLOR_BGR2GRAY)
+    
+    # Detect the bright watermark star pixels
+    thresh = (gray > 65).astype(np.uint8) * 255
+    kernel = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (11, 11))
+    dilated = cv2.dilate(thresh, kernel, iterations=3)
+    
+    mask = np.zeros((h, w), dtype=np.uint8)
+    mask[y1:y2, x1:x2] = dilated
+    
+    # Inpaint using Telea fast marching method
+    inpainted = cv2.inpaint(cv_img, mask, inpaintRadius=7, flags=cv2.INPAINT_TELEA)
+    return inpainted
+
 def enhance_image(pil_img):
     # Unsharp mask for crisp facial micro-details & clothing texture
     sharpened = pil_img.filter(ImageFilter.UnsharpMask(radius=1.2, percent=120, threshold=2))
@@ -32,18 +56,25 @@ def enhance_image(pil_img):
 def process():
     remove_old_sequence()
 
-    src_files = sorted(glob.glob(os.path.join(SRC_DIR, "*.jpg")))
+    src_files = sorted(glob.glob(os.path.join(SRC_DIR, "frame_*.jpg")))
     print(f"Found {len(src_files)} user source images in {SRC_DIR}.")
     if not src_files:
         raise ValueError(f"No source images found in {SRC_DIR}")
 
-    # Load all source images into numpy arrays (RGB)
+    # Load all source images, remove watermark, and convert to numpy arrays (RGB)
     source_images = []
     for f in src_files:
-        img = Image.open(f).convert("RGB")
-        if img.size != (TARGET_W, TARGET_H):
-            img = img.resize((TARGET_W, TARGET_H), Image.Resampling.LANCZOS)
-        source_images.append(np.array(img, dtype=np.float32))
+        cv_img = cv2.imread(f)
+        cleaned_cv = remove_watermark(cv_img)
+        # Also overwrite the source file with cleaned version
+        cv2.imwrite(f, cleaned_cv)
+        
+        # Convert BGR to RGB for PIL / numpy interpolation
+        rgb_img = cv2.cvtColor(cleaned_cv, cv2.COLOR_BGR2RGB)
+        pil_img = Image.fromarray(rgb_img)
+        if pil_img.size != (TARGET_W, TARGET_H):
+            pil_img = pil_img.resize((TARGET_W, TARGET_H), Image.Resampling.LANCZOS)
+        source_images.append(np.array(pil_img, dtype=np.float32))
 
     num_sources = len(source_images)
     print(f"Interpolating {num_sources} keyframes to {TOTAL_OUTPUT_FRAMES} buttery-smooth frames...")
