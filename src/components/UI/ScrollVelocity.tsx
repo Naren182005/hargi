@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useLayoutEffect, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -149,7 +149,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
   scrollerStyle,
 }) => {
   return (
-    <div className="w-full space-y-2 py-4 select-none pointer-events-none">
+    <section className="w-full space-y-2 py-4 select-none pointer-events-none overflow-hidden">
       {texts.map((text, index) => (
         <VelocityText
           key={index}
@@ -168,7 +168,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
           {text}
         </VelocityText>
       ))}
-    </div>
+    </section>
   );
 };
 
