@@ -15,75 +15,75 @@ import {
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 const DEFAULT_CARDS: StackSpreadCard[] = [
-  // 1: Top-left spices
+  // 1: Top-left Cardamom
   {
     item: { src: "/products/green-cardamom.jpg", alt: "Premium Green Cardamom", label: "Green Cardamom" },
     stackOffset: { x: -8, y: -10 },
     stackRotate: -18,
-    target: { x: -22, y: -32, rotate: -6, scale: 0.88, w: 18, h: 24 },
+    target: { x: -33, y: -30, rotate: -5, scale: 1.0, w: 20, h: 26 },
     targetSm: { x: -22, y: -40 },
     z: 2,
   },
-  // 2: Top-right coffee
+  // 2: Top-right Coffee
   {
     item: { src: "/products/specialty-coffee.png", alt: "Specialty Indian Coffee", label: "Specialty Coffee" },
     stackOffset: { x: 14, y: -10 },
     stackRotate: 20,
-    target: { x: 30, y: -28, rotate: 6, scale: 0.9, w: 19, h: 28 },
+    target: { x: 33, y: -30, rotate: 5, scale: 1.0, w: 20, h: 26 },
     targetSm: { x: 22, y: -40 },
     z: 3,
   },
-  // 3: Mid-left black pepper
+  // 3: Mid-left Black Pepper
   {
     item: { src: "/products/black-pepper.jpg", alt: "Malabar Black Pepper", label: "Black Pepper" },
     stackOffset: { x: -16, y: 0 },
     stackRotate: -4,
-    target: { x: -35, y: -2, rotate: -4, scale: 0.88, w: 17, h: 28 },
+    target: { x: -38, y: 0, rotate: -3, scale: 1.0, w: 20, h: 26 },
     targetSm: { x: -22, y: -19 },
     z: 4,
   },
-  // 4: Top-centre turmeric
+  // 4: Top-centre Turmeric
   {
     item: { src: "/products/turmeric.png", alt: "Pure Indian Turmeric", label: "Pure Turmeric" },
     stackOffset: { x: 1, y: -10 },
     stackRotate: -2,
-    target: { x: 6, y: -32, rotate: 2, scale: 0.85, w: 22, h: 26 },
+    target: { x: 0, y: -34, rotate: 0, scale: 1.0, w: 20, h: 26 },
     targetSm: { x: 22, y: -19 },
     z: 5,
   },
-  // 5: Mid-right coconuts
+  // 5: Mid-right Coconuts
   {
     item: { src: "/products/coconut.jpg", alt: "Fresh Whole Coconuts", label: "Fresh Coconuts" },
     stackOffset: { x: 18, y: 1 },
     stackRotate: 6,
-    target: { x: 36, y: 4, rotate: 5, scale: 0.88, w: 18, h: 28 },
+    target: { x: 38, y: 0, rotate: 3, scale: 1.0, w: 20, h: 26 },
     targetSm: { x: -22, y: 20 },
     z: 6,
   },
-  // 6: Bottom-left coco peat
+  // 6: Bottom-left Coco Peat Blocks (Wide left)
   {
     item: { src: "/products/coco-peat-blocks.jpg", alt: "5kg Coco Peat Blocks", label: "Coco Peat Blocks" },
     stackOffset: { x: -6, y: 10 },
     stackRotate: 6,
-    target: { x: -24, y: 32, rotate: -3, scale: 0.9, w: 20, h: 25 },
-    targetSm: { x: 22, y: 20 },
+    target: { x: -36, y: 32, rotate: -4, scale: 1.0, w: 19, h: 25 },
+    targetSm: { x: -22, y: 20 },
     z: 7,
   },
-  // 7: Bottom-centre cashews
+  // 7: Bottom-centre Cashews (Centered)
   {
     item: { src: "/products/cashew-nuts.jpg", alt: "Export Grade Cashews", label: "Premium Cashews" },
     stackOffset: { x: 8, y: 7 },
     stackRotate: 3,
-    target: { x: 2, y: 34, rotate: 2, scale: 0.9, w: 20, h: 25 },
-    targetSm: { x: -22, y: 40 },
+    target: { x: 0, y: 34, rotate: 0, scale: 1.0, w: 19, h: 25 },
+    targetSm: { x: 22, y: 20 },
     z: 8,
   },
-  // 8: Bottom-right cinnamon & cloves
+  // 8: Bottom-right Ceylon Cinnamon (Wide right)
   {
     item: { src: "/products/cinnamon.png", alt: "Ceylon Cinnamon", label: "Ceylon Cinnamon" },
     stackOffset: { x: 20, y: 12 },
     stackRotate: -7,
-    target: { x: 28, y: 32, rotate: -5, scale: 0.88, w: 17, h: 22 },
+    target: { x: 36, y: 32, rotate: 4, scale: 1.0, w: 19, h: 25 },
     targetSm: { x: 22, y: 40 },
     z: 9,
   },
