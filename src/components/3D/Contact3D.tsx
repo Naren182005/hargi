@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Phone, Mail, Clock, ArrowRight, Sparkles } from "lucide-react";
 import { FlowingMenu } from "@/components/UI/FlowingMenu";
+import PixelCard from "@/components/UI/PixelCard";
 
 export const Contact3D: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -66,65 +67,73 @@ export const Contact3D: React.FC = () => {
 
         {/* Split Card Container */}
         <div className="bg-white rounded-3xl shadow-lg border border-neutral-200/80 overflow-hidden grid grid-cols-1 lg:grid-cols-12 max-w-4xl mx-auto">
-          {/* Left Column: Forest Green Info Box */}
-          <div className="lg:col-span-5 bg-[#0f5132] text-white p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden">
-            {/* Decorative Subtle Background Circles */}
-            <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-white/5 rounded-full pointer-events-none" />
-            <div className="absolute top-1/2 -right-12 w-40 h-40 bg-white/5 rounded-full pointer-events-none" />
+          {/* Left Column: Forest Green Info Box with Interactive Pixel Shimmer */}
+          <div className="lg:col-span-5 relative">
+            <PixelCard
+              variant="default"
+              colors="#ffffff,#a7f3d0,#4ade80,#10b981,#34d399"
+              speed={45}
+              gap={7}
+              className="w-full h-full bg-[#0f5132] text-white p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden rounded-none"
+            >
+              {/* Decorative Subtle Background Circles */}
+              <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-white/5 rounded-full pointer-events-none" />
+              <div className="absolute top-1/2 -right-12 w-40 h-40 bg-white/5 rounded-full pointer-events-none" />
 
-            <div className="space-y-8 relative z-10">
-              <div>
-                <h3 className="text-2xl font-bold font-sans tracking-tight text-white">
-                  HarGi Agro Products
-                </h3>
-              </div>
-
-              {/* Direct Phone */}
-              <div className="flex items-start gap-4">
-                <div className="p-2.5 rounded-xl bg-white/10 text-white flex-shrink-0">
-                  <Phone className="w-5 h-5" />
-                </div>
+              <div className="space-y-8 relative z-10">
                 <div>
-                  <a
-                    href="tel:+917779955393"
-                    className="text-base font-bold text-white hover:text-emerald-200 transition-colors block"
-                  >
-                    +91 77799 55393
-                  </a>
-                  <div className="text-xs text-white/70 mt-0.5">Direct Contact</div>
+                  <h3 className="text-2xl font-bold font-sans tracking-tight text-white">
+                    HarGi Agro Products
+                  </h3>
                 </div>
-              </div>
 
-              {/* Email */}
-              <div className="flex items-start gap-4">
-                <div className="p-2.5 rounded-xl bg-white/10 text-white flex-shrink-0">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <a
-                    href="mailto:info@hagitechsol.com"
-                    className="text-sm font-semibold text-white hover:text-emerald-200 transition-colors block break-all"
-                  >
-                    info@hagitechsol.com
-                  </a>
-                  <div className="text-xs text-white/70 mt-0.5">General Enquiries</div>
-                </div>
-              </div>
-
-              {/* Business Hours */}
-              <div className="flex items-start gap-4">
-                <div className="p-2.5 rounded-xl bg-white/10 text-white flex-shrink-0">
-                  <Clock className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-sm font-semibold text-white">Business Hours</div>
-                  <div className="text-xs text-white/80 mt-1">
-                    Mon – Sat: 9:00 AM – 6:00 PM IST
+                {/* Direct Phone */}
+                <div className="flex items-start gap-4">
+                  <div className="p-2.5 rounded-xl bg-white/10 text-white flex-shrink-0">
+                    <Phone className="w-5 h-5" />
                   </div>
-                  <div className="text-xs text-white/80">Sunday: Closed</div>
+                  <div>
+                    <a
+                      href="tel:+917779955393"
+                      className="text-base font-bold text-white hover:text-emerald-200 transition-colors block"
+                    >
+                      +91 77799 55393
+                    </a>
+                    <div className="text-xs text-white/70 mt-0.5">Direct Contact</div>
+                  </div>
+                </div>
+
+                {/* Email */}
+                <div className="flex items-start gap-4">
+                  <div className="p-2.5 rounded-xl bg-white/10 text-white flex-shrink-0">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <a
+                      href="mailto:info@hagitechsol.com"
+                      className="text-sm font-semibold text-white hover:text-emerald-200 transition-colors block break-all"
+                    >
+                      info@hagitechsol.com
+                    </a>
+                    <div className="text-xs text-white/70 mt-0.5">General Enquiries</div>
+                  </div>
+                </div>
+
+                {/* Business Hours */}
+                <div className="flex items-start gap-4">
+                  <div className="p-2.5 rounded-xl bg-white/10 text-white flex-shrink-0">
+                    <Clock className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-white">Business Hours</div>
+                    <div className="text-xs text-white/80 mt-1">
+                      Mon – Sat: 9:00 AM – 6:00 PM IST
+                    </div>
+                    <div className="text-xs text-white/80">Sunday: Closed</div>
+                  </div>
                 </div>
               </div>
-            </div>
+            </PixelCard>
           </div>
 
           {/* Right Column: Clean White Form */}
