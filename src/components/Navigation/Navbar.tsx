@@ -5,8 +5,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
+import { PillNav } from "./PillNav";
+
 export const Navbar: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   const navItems = [
     { label: "Home", id: "home" },
@@ -16,6 +19,7 @@ export const Navbar: React.FC = () => {
   ];
 
   const scrollToSection = (id: string) => {
+    setActiveSection(id);
     setMobileMenuOpen(false);
     const el = document.getElementById(id);
     if (el) {
@@ -53,18 +57,21 @@ export const Navbar: React.FC = () => {
             </span>
           </button>
 
-          {/* Right Navigation Links on White Background */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-12">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="transition-colors hover:text-[#0f5132] cursor-pointer bg-transparent border-none focus:outline-none font-sans text-sm sm:text-base font-medium text-[#212529] p-0"
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
+          {/* Right Navigation Links with PillNav Effect */}
+          <div className="hidden md:block">
+            <PillNav
+              items={navItems.map((item) => ({
+                label: item.label,
+                id: item.id,
+                onClick: () => scrollToSection(item.id),
+              }))}
+              activeId={activeSection}
+              baseColor="#0f5132"
+              pillColor="transparent"
+              pillTextColor="#212529"
+              hoveredPillTextColor="#ffffff"
+            />
+          </div>
 
           {/* Mobile Menu Toggle */}
           <button

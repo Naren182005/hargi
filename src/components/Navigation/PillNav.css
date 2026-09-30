@@ -1,0 +1,115 @@
+.pill-nav-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.pill-nav {
+  --nav-h: 40px;
+  --pill-pad-x: 20px;
+  --pill-gap: 6px;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.pill-nav-items {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: var(--nav-h);
+  background: var(--base-container, rgba(0, 0, 0, 0.04));
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 9999px;
+  padding: 3px;
+}
+
+.pill-list {
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  gap: var(--pill-gap);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.pill-list > li {
+  display: flex;
+  height: 100%;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 var(--pill-pad-x);
+  background: var(--pill-bg, transparent);
+  color: var(--pill-text, #212529);
+  text-decoration: none;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  user-select: none;
+  transition: box-shadow 0.2s ease;
+}
+
+.pill .hover-circle {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  border-radius: 50%;
+  background: var(--base, #0f5132);
+  z-index: 1;
+  display: block;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.pill .label-stack {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  z-index: 2;
+  height: 14px;
+}
+
+.pill .pill-label {
+  position: relative;
+  z-index: 2;
+  display: block;
+  line-height: 1;
+  will-change: transform;
+  font-weight: 600;
+}
+
+.pill .pill-label-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--hover-text, #ffffff);
+  z-index: 3;
+  display: block;
+  line-height: 1;
+  will-change: transform, opacity;
+  font-weight: 600;
+}
+
+.pill.is-active {
+  background: var(--base, #0f5132);
+  color: var(--hover-text, #ffffff);
+}
+
+.pill.is-active .pill-label {
+  color: var(--hover-text, #ffffff);
+}
