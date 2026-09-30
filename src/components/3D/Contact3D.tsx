@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Phone, Mail, Clock, ArrowRight } from "lucide-react";
+import { Phone, Mail, Clock, ArrowRight, Sparkles } from "lucide-react";
+import { FlowingMenu } from "@/components/UI/FlowingMenu";
 
 export const Contact3D: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -22,16 +23,39 @@ export const Contact3D: React.FC = () => {
     window.open(`https://wa.me/917779955393?text=${encoded}`, "_blank");
   };
 
+  const flowingMenuItems = [
+    {
+      link: "tel:+917779955393",
+      text: "Direct Trade Call",
+      image: "/products/coconut.jpg",
+    },
+    {
+      link: "https://wa.me/917779955393",
+      text: "WhatsApp Desk",
+      image: "/products/green-cardamom.jpg",
+    },
+    {
+      link: "mailto:info@hagitechsol.com",
+      text: "Email Inquiries",
+      image: "/products/specialty-coffee.png",
+    },
+    {
+      link: "#products-catalog",
+      text: "61+ Agro Products",
+      image: "/products/black-pepper.jpg",
+    },
+  ];
+
   return (
     <section
       id="contact"
       style={{ backgroundColor: "#f4f8f4" }}
-      className="relative w-full py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-[#212529]"
+      className="relative w-full py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-[#212529]"
     >
-      <div className="max-w-5xl mx-auto space-y-12">
+      <div className="max-w-5xl mx-auto space-y-16">
         {/* Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#0f5132] font-sans">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-[#0f5132] font-sans">
             Contact Us
           </h2>
           <p className="text-xs sm:text-sm text-[#495057] font-sans leading-relaxed">
@@ -44,7 +68,7 @@ export const Contact3D: React.FC = () => {
         <div className="bg-white rounded-3xl shadow-lg border border-neutral-200/80 overflow-hidden grid grid-cols-1 lg:grid-cols-12 max-w-4xl mx-auto">
           {/* Left Column: Forest Green Info Box */}
           <div className="lg:col-span-5 bg-[#0f5132] text-white p-8 sm:p-10 flex flex-col justify-between relative overflow-hidden">
-            {/* Decorative Subtle Background Circle */}
+            {/* Decorative Subtle Background Circles */}
             <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-white/5 rounded-full pointer-events-none" />
             <div className="absolute top-1/2 -right-12 w-40 h-40 bg-white/5 rounded-full pointer-events-none" />
 
@@ -179,6 +203,28 @@ export const Contact3D: React.FC = () => {
                 </p>
               )}
             </form>
+          </div>
+        </div>
+
+        {/* ============================================================ */}
+        {/* Interactive 3D Flowing Menu Component for Fast Trade Reach    */}
+        {/* ============================================================ */}
+        <div className="space-y-4 max-w-4xl mx-auto pt-4">
+          <div className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0f5132]">
+            <Sparkles className="w-4 h-4 text-[#15803d]" />
+            <span>Interactive Quick Trade &amp; Export Channels</span>
+          </div>
+
+          <div className="h-[360px] sm:h-[400px] w-full rounded-3xl shadow-lg border border-neutral-200/80 overflow-hidden bg-white">
+            <FlowingMenu
+              items={flowingMenuItems}
+              speed={14}
+              textColor="#0f5132"
+              bgColor="#ffffff"
+              marqueeBgColor="#0f5132"
+              marqueeTextColor="#ffffff"
+              borderColor="rgba(15, 81, 50, 0.12)"
+            />
           </div>
         </div>
 
