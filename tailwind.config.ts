@@ -10,32 +10,41 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#050505",
+        background: "#030705",
         surface: {
-          DEFAULT: "#0d0d0d",
-          elevated: "#141414",
-          card: "rgba(18, 18, 18, 0.75)",
+          DEFAULT: "#06120b",
+          elevated: "#0c1d13",
+          card: "rgba(6, 22, 14, 0.75)",
+          glass: "rgba(10, 30, 20, 0.6)",
         },
         brand: {
-          orange: "#ff4d00",
-          amber: "#ff8c00",
-          crimson: "#e62e00",
-          flame: "#ff3700",
+          dark: "#021a0e",
+          forest: "#063d22",
+          emerald: "#10b981",
+          leaf: "#22c55e",
+          lime: "#4ade80",
+          sprout: "#86efac",
+          gold: "#f59e0b",
+          amber: "#d97706",
+          earth: "#854d0e",
         },
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-ember": "radial-gradient(circle at 50% 50%, rgba(255, 77, 0, 0.15), transparent 70%)",
+        "gradient-hargi": "radial-gradient(circle at 50% 50%, rgba(34, 197, 94, 0.15), transparent 70%)",
+        "gradient-gold": "radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.12), transparent 70%)",
       },
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "float": "float 6s ease-in-out infinite",
+        "float-slow": "float 9s ease-in-out infinite",
         "shimmer": "shimmer 2.5s linear infinite",
+        "spin-slow": "spin 25s linear infinite",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+          "50%": { transform: "translateY(-12px)" },
         },
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
@@ -47,8 +56,9 @@ const config: Config = {
         display: ["var(--font-display)", "system-ui", "sans-serif"],
       },
       boxShadow: {
-        "glow-orange": "0 0 35px -5px rgba(255, 77, 0, 0.35)",
-        "glow-subtle": "0 0 25px -5px rgba(255, 255, 255, 0.08)",
+        "glow-green": "0 0 35px -5px rgba(34, 197, 94, 0.35)",
+        "glow-emerald": "0 0 40px -5px rgba(16, 185, 129, 0.45)",
+        "glow-gold": "0 0 35px -5px rgba(245, 158, 11, 0.35)",
         "inner-glow": "inset 0 1px 1px 0 rgba(255, 255, 255, 0.1)",
       },
     },

@@ -2,63 +2,48 @@
 
 import React, { useState } from "react";
 import { ScrollyCanvas } from "@/components/CanvasScroller/ScrollyCanvas";
-import { Overlay } from "@/components/CanvasScroller/Overlay";
+import { HarGiOverlay } from "@/components/CanvasScroller/HarGiOverlay";
 import { Preloader } from "@/components/CanvasScroller/Preloader";
-import { Projects } from "@/components/Portfolio/Projects";
-import { HackathonShowcase } from "@/components/Portfolio/HackathonShowcase";
-import { DeveloperTerminal } from "@/components/Code/DeveloperTerminal";
-import { InternationalProjects } from "@/components/Portfolio/InternationalProjects";
-import { Philosophy } from "@/components/Portfolio/Philosophy";
-import { Experience } from "@/components/Portfolio/Experience";
-import { Contact } from "@/components/Portfolio/Contact";
-import { Footer } from "@/components/Portfolio/Footer";
+import { CompanyVision3D } from "@/components/3D/CompanyVision3D";
+import { ProductShowcase3D } from "@/components/3D/ProductShowcase3D";
+import { Contact3D } from "@/components/3D/Contact3D";
 
 export default function HomePage() {
   const [loadedFrames, setLoadedFrames] = useState(0);
-  const totalFrames = 180;
+  const totalFrames = 51;
 
   return (
     <>
-      {/* 2K Neural Sequence Preloader */}
+      {/* 1. 3D Sequence Preloader */}
       <Preloader loaded={loadedFrames} total={totalFrames} />
 
-      {/* Scrollytelling 500vh Sticky Canvas & AI Parallax Overlay */}
-      <ScrollyCanvas
-        totalFrames={totalFrames}
-        onLoadingProgress={(loaded) => setLoadedFrames(loaded)}
-      >
-        <Overlay />
-      </ScrollyCanvas>
+      {/* Main Continuous Single-Page Flow with Top Header Navigation */}
+      <div className="w-full pt-20 sm:pt-24">
+        {/* Section 1: Home (3D Scrolly Canvas) */}
+        <section id="home" className="relative w-full">
+          <ScrollyCanvas
+            totalFrames={totalFrames}
+            onLoadingProgress={(loaded) => setLoadedFrames(loaded)}
+          >
+            <HarGiOverlay />
+          </ScrollyCanvas>
+        </section>
 
-      {/* AI, Deep Learning & Full-Stack Projects */}
-      <Projects />
+        {/* Section 2: About (HarGi Agro Products Story, Strengths & Purpose) */}
+        <section id="about" className="relative w-full">
+          <CompanyVision3D />
+        </section>
 
-      {/* Signature Module 1: Hackathons & Startup Victories Showcase */}
-      <div id="hackathons">
-        <HackathonShowcase />
+        {/* Section 3: Products (61 Agro Products with Search & Categories) */}
+        <section id="products" className="relative w-full">
+          <ProductShowcase3D />
+        </section>
+
+        {/* Section 4: Contact (Direct Contact Desk, Business Hours & Inquiry Form) */}
+        <section id="contact" className="relative w-full">
+          <Contact3D />
+        </section>
       </div>
-
-      {/* Signature Module 2: Interactive Developer Terminal */}
-      <div id="terminal">
-        <DeveloperTerminal />
-      </div>
-
-      {/* Signature Module 3: International Projects & Global Immersion Gallery */}
-      <div id="international-projects">
-        <InternationalProjects />
-      </div>
-
-      {/* Engineering Ethos & Impact Stats */}
-      <Philosophy />
-
-      {/* Journey, Education, Hackathons & Certifications */}
-      <Experience />
-
-      {/* Contact NAREN KG */}
-      <Contact />
-
-      {/* Footer */}
-      <Footer />
     </>
   );
 }

@@ -22,7 +22,7 @@ interface ScrollyCanvasProps {
 }
 
 export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
-  totalFrames = 180,
+  totalFrames = 51,
   onProgressUpdate,
   onLoadingProgress,
   children,
@@ -34,7 +34,7 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
   const animationFrameIdRef = useRef<number | null>(null);
   const [isFirstFrameLoaded, setIsFirstFrameLoaded] = useState(false);
 
-  // Framer Motion scroll tracking over the 500vh container
+  // Framer Motion scroll tracking over the 400vh container
   const { scrollYProgress: rawScrollProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
@@ -42,9 +42,9 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
 
   // Inertia spring smoothing for buttery 60-120 FPS glide without discrete wheel jumps
   const smoothProgress = useSpring(rawScrollProgress, {
-    stiffness: 100,
-    damping: 26,
-    mass: 0.25,
+    stiffness: 90,
+    damping: 24,
+    mass: 0.22,
     restDelta: 0.0001,
   });
 
@@ -148,24 +148,19 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
     renderFrame(currentFrameRef.current);
   }, [renderFrame]);
 
-  // Preload all 180 images into memory
+  // Preload all 51 brand images into memory
   useEffect(() => {
     imagesRef.current = new Array(totalFrames).fill(null);
     let loadedCounter = 0;
 
-    const getWebpPath = (index: number) => {
-      const padded = String(index + 1).padStart(3, "0");
-      return `/sequence/frame_${padded}.webp`;
-    };
-
-    const getJpgPath = (index: number) => {
-      const padded = String(index + 1).padStart(3, "0");
+    const getFramePath = (index: number) => {
+      const padded = String(index + 1).padStart(4, "0");
       return `/sequence/frame_${padded}.jpg`;
     };
 
     // Priority load: frame 0 first for instant paint
     const firstImg = new Image();
-    firstImg.src = getWebpPath(0);
+    firstImg.src = getFramePath(0);
     firstImg.onload = () => {
       imagesRef.current[0] = firstImg;
       loadedCounter++;
@@ -174,10 +169,10 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
       renderFrame(0);
       onLoadingProgress?.(loadedCounter, totalFrames);
 
-      // Then load remaining frames progressively
+      // Then load remaining 50 frames progressively
       for (let i = 1; i < totalFrames; i++) {
         const img = new Image();
-        img.src = getWebpPath(i);
+        img.src = getFramePath(i);
         img.onload = () => {
           imagesRef.current[i] = img;
           loadedCounter++;
@@ -187,22 +182,11 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
             renderFrame(i);
           }
         };
-        img.onerror = () => {
-          // Fallback to 2K JPEG
-          const fallback = new Image();
-          fallback.src = getJpgPath(i);
-          fallback.onload = () => {
-            imagesRef.current[i] = fallback;
-            loadedCounter++;
-            onLoadingProgress?.(loadedCounter, totalFrames);
-          };
-        };
       }
     };
 
     firstImg.onerror = () => {
-      // Fallback path to 2K JPEG
-      firstImg.src = getJpgPath(0);
+      console.error("Failed to load initial frame:", getFramePath(0));
     };
 
     window.addEventListener("resize", handleResize);
@@ -239,8 +223,8 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
   return (
     <div
       ref={containerRef}
-      id="scrolly-section"
-      className="relative h-[500vh] w-full bg-[#050505]"
+      id="hero"
+      className="relative h-[450vh] w-full bg-background"
     >
       {/* Sticky viewport frame */}
       <div className="sticky top-0 h-screen w-full overflow-hidden">
@@ -248,17 +232,17 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
           ref={canvasRef}
           className="absolute inset-0 block h-full w-full object-cover"
           style={{
-            backgroundColor: "#050505",
+            backgroundColor: "#030705",
             opacity: isFirstFrameLoaded ? 1 : 0.4,
             transition: "opacity 0.6s ease-out",
           }}
         />
 
-        {/* Cinematic Vignette & Edge Blending into #050505 */}
+        {/* Cinematic Vignette & Edge Blending into background */}
         <div className="canvas-vignette absolute inset-0 z-[5]" />
 
-        {/* Subtle fiery glow accent that breathes with the background */}
-        <div className="pointer-events-none absolute -bottom-32 left-1/2 h-[450px] w-[800px] -translate-x-1/2 rounded-full bg-brand-orange/10 blur-[140px]" />
+        {/* Subtle emerald glow accent that breathes with the background */}
+        <div className="pointer-events-none absolute -bottom-32 left-1/2 h-[450px] w-[800px] -translate-x-1/2 rounded-full bg-brand-emerald/10 blur-[140px]" />
 
         {/* Narrative Parallax Overlay sitting at z-10 with smoothed scroll progress */}
         <ScrollyContext.Provider value={{ scrollYProgress: smoothProgress }}>
@@ -270,3 +254,4 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
     </div>
   );
 };
+

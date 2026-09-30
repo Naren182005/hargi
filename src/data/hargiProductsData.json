@@ -1,0 +1,681 @@
+[
+  {
+    "id": "bay-leaf-tej-patta",
+    "name": "Bay Leaf (Tej Patta)",
+    "category": "Indian Spices & Salt",
+    "description": "Aromatic Indian bay leaves \u2013 essential for biryanis, curries & seasoning",
+    "tags": [
+      "Premium hand-picked leaves",
+      "Strong fragrance & flavor",
+      "Dried & cleaned"
+    ]
+  },
+  {
+    "id": "mixed-nuts",
+    "name": "Mixed Nuts",
+    "category": "Nuts & Dried Fruits",
+    "description": "A healthy, crunchy blend of premium roasted nuts.",
+    "tags": [
+      "Almonds/Cashews/Pistachios",
+      "Salted/Unsalted",
+      "Energy boosting"
+    ]
+  },
+  {
+    "id": "nutmeg",
+    "name": "Nutmeg",
+    "category": "Indian Spices & Salt",
+    "description": "Whole nutmeg offering a sweet and warm aroma.",
+    "tags": [
+      "With/Without shell",
+      "Bold size",
+      "High oil"
+    ]
+  },
+  {
+    "id": "star-anise",
+    "name": "Star Anise",
+    "category": "Indian Spices & Salt",
+    "description": "Beautiful, star-shaped spice with a strong licorice flavor.",
+    "tags": [
+      "Whole stars",
+      "Highly aromatic",
+      "Essential for broths"
+    ]
+  },
+  {
+    "id": "pecans",
+    "name": "Pecans",
+    "category": "Nuts & Dried Fruits",
+    "description": "Sweet and buttery pecan halves.",
+    "tags": [
+      "Rich in antioxidants",
+      "Perfect halves",
+      "Fresh"
+    ]
+  },
+  {
+    "id": "green-cardamom-elachi",
+    "name": "Green Cardamom (Elachi)",
+    "category": "Indian Spices & Salt",
+    "description": "Queen of spices \u2013 intensely aromatic for sweets, tea & coffee",
+    "tags": [
+      "8mm+ premium pods",
+      "High oil content",
+      "Organic options available"
+    ]
+  },
+  {
+    "id": "raisins",
+    "name": "Raisins",
+    "category": "Nuts & Dried Fruits",
+    "description": "Naturally sweet golden and dark raisins.",
+    "tags": [
+      "Sun-dried",
+      "Seedless",
+      "Plump and juicy"
+    ]
+  },
+  {
+    "id": "pistachios",
+    "name": "Pistachios",
+    "category": "Nuts & Dried Fruits",
+    "description": "Roasted and lightly salted premium pistachios.",
+    "tags": [
+      "Naturally opened",
+      "Vibrant green",
+      "Crunchy"
+    ]
+  },
+  {
+    "id": "chia-seeds",
+    "name": "Chia Seeds",
+    "category": "Nuts & Dried Fruits",
+    "description": "Tiny black seeds packed with Omega-3 and fiber.",
+    "tags": [
+      "Superfood",
+      "Cleaned",
+      "Great for smoothies"
+    ]
+  },
+  {
+    "id": "asafoetida-hing",
+    "name": "Asafoetida (Hing)",
+    "category": "Indian Spices & Salt",
+    "description": "Strong and pungent spice used to enhance savory dishes.",
+    "tags": [
+      "Compounded/Pure",
+      "Authentic flavor",
+      "Airtight packing"
+    ]
+  },
+  {
+    "id": "cashew-nuts",
+    "name": "Cashew Nuts",
+    "category": "Nuts & Dried Fruits",
+    "description": "Creamy and large Indian cashew nuts (W210, W240, W320).",
+    "tags": [
+      "Whole whites",
+      "Crispy texture",
+      "Vacuum packed"
+    ]
+  },
+  {
+    "id": "sugarcane-jaggery-gur",
+    "name": "Sugarcane Jaggery (Gur)",
+    "category": "Jaggery Varieties",
+    "description": "Classic golden-brown unrefined cane jaggery \u2013 rich in minerals, widely used in sweets & daily consumption",
+    "tags": [
+      "High iron",
+      "calcium & magnesium",
+      "Block",
+      "powder & cube forms",
+      "Versatile for Indian & international cuisines",
+      "Organic options available"
+    ]
+  },
+  {
+    "id": "hazelnuts",
+    "name": "Hazelnuts",
+    "category": "Nuts & Dried Fruits",
+    "description": "Rich, buttery whole hazelnuts.",
+    "tags": [
+      "Roasted/Raw",
+      "Crunchy",
+      "Great for baking"
+    ]
+  },
+  {
+    "id": "dates",
+    "name": "Dates",
+    "category": "Nuts & Dried Fruits",
+    "description": "Soft, sweet, and energy-packed dates.",
+    "tags": [
+      "Pitted/Unpitted",
+      "Natural sweetness",
+      "High fiber"
+    ]
+  },
+  {
+    "id": "cumin",
+    "name": "Cumin",
+    "category": "Indian Spices & Salt",
+    "description": "Aromatic cumin seeds essential for traditional cooking.",
+    "tags": [
+      "Earthy flavor",
+      "Cleaned and sorted",
+      "Fresh aroma"
+    ]
+  },
+  {
+    "id": "curry-leaves-dried",
+    "name": "Curry Leaves (Dried)",
+    "category": "Indian Spices & Salt",
+    "description": "Aromatic dried curry leaves that retain their natural flavor.",
+    "tags": [
+      "Green color retained",
+      "Strong aroma",
+      "Destemmed"
+    ]
+  },
+  {
+    "id": "coffee-blends",
+    "name": "Coffee Blends",
+    "category": "Indian Coffee",
+    "description": "Expertly crafted blends combining Arabica and Robusta for perfect balance.",
+    "tags": [
+      "Consistent taste",
+      "Rich aroma",
+      "Ideal for cafes"
+    ]
+  },
+  {
+    "id": "apricots",
+    "name": "Apricots",
+    "category": "Nuts & Dried Fruits",
+    "description": "Tart and sweet dried apricots, a perfect healthy snack.",
+    "tags": [
+      "Bright color",
+      "Soft texture",
+      "Rich in Iron"
+    ]
+  },
+  {
+    "id": "turmeric",
+    "name": "Turmeric",
+    "category": "Indian Spices & Salt",
+    "description": "Golden Indian turmeric with high curcumin content.",
+    "tags": [
+      "Anti-inflammatory",
+      "Natural color",
+      "Bold fingers/powder"
+    ]
+  },
+  {
+    "id": "650g-coco-peat-blocks",
+    "name": "650g Coco Peat Blocks",
+    "category": "Coconut Products",
+    "description": "Compact 650g briquettes perfect for home gardening.",
+    "tags": [
+      "Expands to 10 liters",
+      "Weed-free",
+      "High porosity"
+    ]
+  },
+  {
+    "id": "activated-carbon",
+    "name": "Activated Carbon",
+    "category": "Coconut Products",
+    "description": "High-performance coconut shell carbon for purification & filtration",
+    "tags": [
+      "Iodine value 800\u20131400",
+      "Granular & powdered forms",
+      "Water",
+      "air & gold recovery grades"
+    ]
+  },
+  {
+    "id": "coriander",
+    "name": "Coriander",
+    "category": "Indian Spices & Salt",
+    "description": "Fresh and aromatic coriander seeds/powder with a citrus hint.",
+    "tags": [
+      "Bright color",
+      "Mildly sweet",
+      "Finely milled options"
+    ]
+  },
+  {
+    "id": "coco-peat-blocks",
+    "name": "Coco Peat Blocks",
+    "category": "Coconut Products",
+    "description": "High-quality compressed coco peat blocks for agriculture.",
+    "tags": [
+      "Excellent water retention",
+      "100% Organic",
+      "Easy to use"
+    ]
+  },
+  {
+    "id": "mustard-seeds",
+    "name": "Mustard Seeds",
+    "category": "Indian Spices & Salt",
+    "description": "Pungent black/yellow mustard seeds for tempering.",
+    "tags": [
+      "Uniform size",
+      "High oil content",
+      "Cleaned"
+    ]
+  },
+  {
+    "id": "mixed-spice-blends",
+    "name": "Mixed Spice Blends",
+    "category": "Indian Spices & Salt",
+    "description": "Authentic Indian spice blends for specific dishes like Garam Masala.",
+    "tags": [
+      "Perfect ratios",
+      "Freshly roasted",
+      "Ready to use"
+    ]
+  },
+  {
+    "id": "whole-mature-coconuts",
+    "name": "Whole Mature Coconuts",
+    "category": "Coconut Products",
+    "description": "Premium export-grade fresh coconuts for global markets",
+    "tags": [
+      "Uniform size & weight",
+      "Long shelf life",
+      "Husked",
+      "semi-husked & dehusked"
+    ]
+  },
+  {
+    "id": "mace",
+    "name": "Mace",
+    "category": "Indian Spices & Salt",
+    "description": "Lacy outer covering of nutmeg with a delicate, warm flavor.",
+    "tags": [
+      "Bright orange-red",
+      "Freshly dried",
+      "Premium grade"
+    ]
+  },
+  {
+    "id": "customized-grade-coffee",
+    "name": "Customized Grade Coffee",
+    "category": "Indian Coffee",
+    "description": "Coffee beans graded and sorted according to specific buyer requirements.",
+    "tags": [
+      "Size sorted",
+      "Defect-free",
+      "Tailored to order"
+    ]
+  },
+  {
+    "id": "coco-peat-discs",
+    "name": "Coco Peat Discs",
+    "category": "Coconut Products",
+    "description": "Round coco peat discs for seed starting and seedling growth.",
+    "tags": [
+      "Perfect for seed trays",
+      "Rapid rooting",
+      "Biodegradable"
+    ]
+  },
+  {
+    "id": "pumpkin-seeds",
+    "name": "Pumpkin Seeds",
+    "category": "Nuts & Dried Fruits",
+    "description": "Crunchy and nutritious green pumpkin seeds (Pepitas).",
+    "tags": [
+      "Rich in zinc",
+      "Raw/Roasted",
+      "Shelled"
+    ]
+  },
+  {
+    "id": "almonds",
+    "name": "Almonds",
+    "category": "Nuts & Dried Fruits",
+    "description": "Crunchy and nutritious premium almonds.",
+    "tags": [
+      "Rich in Vitamin E",
+      "Large size",
+      "Non-GMO"
+    ]
+  },
+  {
+    "id": "black-pepper",
+    "name": "Black Pepper",
+    "category": "Indian Spices & Salt",
+    "description": "Premium Indian black pepper \u2013 bold, pungent & aromatic",
+    "tags": [
+      "Whole",
+      "cracked & ground",
+      "High piperine content",
+      "MG-1 & other export grades"
+    ]
+  },
+  {
+    "id": "green-coffee-beans",
+    "name": "Green Coffee Beans",
+    "category": "Indian Coffee",
+    "description": "Raw, unroasted coffee beans sourced from premium Indian estates.",
+    "tags": [
+      "High antioxidant",
+      "Ready for custom roasting",
+      "Hand-picked"
+    ]
+  },
+  {
+    "id": "walnuts",
+    "name": "Walnuts",
+    "category": "Nuts & Dried Fruits",
+    "description": "High-quality walnuts rich in Omega-3 fatty acids.",
+    "tags": [
+      "Light halves",
+      "Fresh taste",
+      "Shell/Shelled"
+    ]
+  },
+  {
+    "id": "roasted-coffee",
+    "name": "Roasted Coffee",
+    "category": "Indian Coffee",
+    "description": "Perfectly roasted coffee beans ready for grinding and brewing.",
+    "tags": [
+      "Medium/Dark roast",
+      "Freshly packed",
+      "Aromatic"
+    ]
+  },
+  {
+    "id": "fennel",
+    "name": "Fennel",
+    "category": "Indian Spices & Salt",
+    "description": "Sweet and aromatic fennel seeds used for seasoning and digestion.",
+    "tags": [
+      "Green color",
+      "Fresh scent",
+      "Highly graded"
+    ]
+  },
+  {
+    "id": "buffered-coco-peat",
+    "name": "Buffered Coco Peat",
+    "category": "Coconut Products",
+    "description": "Premium buffered coco peat treated to reduce salt content.",
+    "tags": [
+      "Calcium/Magnesium treated",
+      "Ready for planting",
+      "High yield"
+    ]
+  },
+  {
+    "id": "brazil-nuts",
+    "name": "Brazil Nuts",
+    "category": "Nuts & Dried Fruits",
+    "description": "Large, nutrient-dense Brazil nuts.",
+    "tags": [
+      "High in Selenium",
+      "Creamy texture",
+      "Raw"
+    ]
+  },
+  {
+    "id": "dry-ginger",
+    "name": "Dry Ginger",
+    "category": "Indian Spices & Salt",
+    "description": "Sun-dried ginger roots with strong, spicy notes.",
+    "tags": [
+      "Washed/Unwashed",
+      "High pungency",
+      "Finely ground options"
+    ]
+  },
+  {
+    "id": "low-ec-coco-peat",
+    "name": "Low-EC Coco Peat",
+    "category": "Coconut Products",
+    "description": "Washed coco peat with very low electrical conductivity.",
+    "tags": [
+      "Ideal for sensitive plants",
+      "Salt-free",
+      "Optimal pH"
+    ]
+  },
+  {
+    "id": "cinnamon",
+    "name": "Cinnamon",
+    "category": "Indian Spices & Salt",
+    "description": "Sweet and woody true cinnamon sticks/powder.",
+    "tags": [
+      "Delicate flavor",
+      "Thin bark",
+      "Premium aroma"
+    ]
+  },
+  {
+    "id": "natural-salt",
+    "name": "Natural Salt",
+    "category": "Indian Spices & Salt",
+    "description": "Pure sea salt & rock salt \u2013 mineral-rich & unrefined",
+    "tags": [
+      "Sea salt crystals & powder",
+      "Low-processed options",
+      "Bulk export ready"
+    ]
+  },
+  {
+    "id": "sunflower-seeds",
+    "name": "Sunflower Seeds",
+    "category": "Nuts & Dried Fruits",
+    "description": "Healthy and crunchy shelled sunflower seeds.",
+    "tags": [
+      "High in Vitamin E",
+      "Great for salads",
+      "Roasted"
+    ]
+  },
+  {
+    "id": "arabica-coffee",
+    "name": "Arabica Coffee",
+    "category": "Indian Coffee",
+    "description": "Smooth and aromatic Arabica beans with a rich flavor profile.",
+    "tags": [
+      "Low acidity",
+      "Sweet notes",
+      "Premium export quality"
+    ]
+  },
+  {
+    "id": "copra",
+    "name": "Copra",
+    "category": "Coconut Products",
+    "description": "High-quality dried coconut kernel for oil extraction & confectionery",
+    "tags": [
+      "Grade 1 & Grade 2",
+      "Moisture < 6%",
+      "White & brown varieties"
+    ]
+  },
+  {
+    "id": "flax-seeds",
+    "name": "Flax Seeds",
+    "category": "Nuts & Dried Fruits",
+    "description": "Nutty-flavored flax seeds, a great source of plant-based Omega-3.",
+    "tags": [
+      "Roasted/Raw",
+      "High fiber",
+      "Supports digestion"
+    ]
+  },
+  {
+    "id": "coconut-chips",
+    "name": "Coconut Chips",
+    "category": "Coconut Products",
+    "description": "Toasted & natural \u2013 healthy snacking & gourmet ingredient",
+    "tags": [
+      "Low moisture content",
+      "Plain",
+      "flavored & organic options",
+      "Bulk & retail packaging"
+    ]
+  },
+  {
+    "id": "dried-figs",
+    "name": "Dried Figs",
+    "category": "Nuts & Dried Fruits",
+    "description": "Sweet and chewy dried figs rich in minerals.",
+    "tags": [
+      "Natural drying",
+      "No added sugar",
+      "Premium size"
+    ]
+  },
+  {
+    "id": "desiccated-coconut",
+    "name": "Desiccated Coconut",
+    "category": "Coconut Products",
+    "description": "Fine/medium/coarse grades for bakery & confectionery industries",
+    "tags": [
+      "High-fat & low-fat options",
+      "Sweetened & unsweetened",
+      "Macaroon & extra-fine grades"
+    ]
+  },
+  {
+    "id": "palm-jaggery-karupatti",
+    "name": "Palm Jaggery (Karupatti)",
+    "category": "Jaggery Varieties",
+    "description": "Dark, soft & smoky-flavored from palmyra/toddy palm sap \u2013 traditional South Indian favorite",
+    "tags": [
+      "Lower glycemic impact",
+      "Rich in antioxidants & zinc",
+      "Ideal for Ayurvedic use & desserts",
+      "Bulk blocks or pieces"
+    ]
+  },
+  {
+    "id": "pine-nuts",
+    "name": "Pine Nuts",
+    "category": "Nuts & Dried Fruits",
+    "description": "Delicate, buttery pine nuts perfect for pesto or salads.",
+    "tags": [
+      "Creamy flavor",
+      "Lightly toasted",
+      "Premium quality"
+    ]
+  },
+  {
+    "id": "ajwain",
+    "name": "Ajwain",
+    "category": "Indian Spices & Salt",
+    "description": "Carom seeds with a strong thyme-like flavor.",
+    "tags": [
+      "Digestive benefits",
+      "Machine cleaned",
+      "Fresh"
+    ]
+  },
+  {
+    "id": "fenugreek",
+    "name": "Fenugreek",
+    "category": "Indian Spices & Salt",
+    "description": "Golden-brown fenugreek seeds with a distinct bitter-sweet flavor.",
+    "tags": [
+      "Machine cleaned",
+      "Bold seeds",
+      "Aromatic"
+    ]
+  },
+  {
+    "id": "coco-peat-grow-bags",
+    "name": "Coco Peat Grow Bags",
+    "category": "Coconut Products",
+    "description": "Ready-to-use grow bags for hydroponics and greenhouse farming.",
+    "tags": [
+      "UV stabilized",
+      "Optimal drainage",
+      "Disease free"
+    ]
+  },
+  {
+    "id": "5kg-coco-peat-blocks",
+    "name": "5kg Coco Peat Blocks",
+    "category": "Coconut Products",
+    "description": "Standard 5kg coco peat blocks ideal for bulk nursery use.",
+    "tags": [
+      "Expands up to 75 liters",
+      "Low EC",
+      "Premium grade"
+    ]
+  },
+  {
+    "id": "cloves",
+    "name": "Cloves",
+    "category": "Indian Spices & Salt",
+    "description": "Intensely aromatic and sweet whole cloves.",
+    "tags": [
+      "High essential oil",
+      "Hand-sorted",
+      "Bold size"
+    ]
+  },
+  {
+    "id": "robusta-coffee",
+    "name": "Robusta Coffee",
+    "category": "Indian Coffee",
+    "description": "Strong and full-bodied Robusta beans for a perfect espresso.",
+    "tags": [
+      "High caffeine",
+      "Deep crema",
+      "Bold flavor"
+    ]
+  },
+  {
+    "id": "tender-coconut-water",
+    "name": "Tender Coconut Water",
+    "category": "Coconut Products",
+    "description": "Fresh natural hydration \u2013 ready-to-drink export quality",
+    "tags": [
+      "Naturally isotonic electrolyte",
+      "No added sugar or preservatives",
+      "Aseptic tetra pak & cans"
+    ]
+  },
+  {
+    "id": "virgin-coconut-oil",
+    "name": "Virgin Coconut Oil",
+    "category": "Coconut Products",
+    "description": "Cold-pressed, unrefined \u2013 ideal for food, cosmetics & health",
+    "tags": [
+      "Lauric acid > 45%",
+      "No trans-fat or cholesterol",
+      "Glass bottles & bulk drums"
+    ]
+  },
+  {
+    "id": "coco-peat-briquettes",
+    "name": "Coco Peat Briquettes",
+    "category": "Coconut Products",
+    "description": "Small coco peat briquettes for specialized potting mixtures.",
+    "tags": [
+      "Quick expansion",
+      "Enhanced root growth",
+      "Eco-friendly"
+    ]
+  },
+  {
+    "id": "specialty-coffee",
+    "name": "Specialty Coffee",
+    "category": "Indian Coffee",
+    "description": "Exclusive micro-lot coffee with distinct cupping scores.",
+    "tags": [
+      "Unique flavor profile",
+      "Single origin",
+      "Sustainably grown"
+    ]
+  }
+]

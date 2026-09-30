@@ -1,46 +1,42 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { ModeProvider } from "@/context/ModeContext";
-import { SoundProvider } from "@/components/UI/SoundManager";
 import { Navbar } from "@/components/Navigation/Navbar";
-import { CustomCursor } from "@/components/Navigation/CustomCursor";
-import { SmoothScrollProvider } from "@/components/UI/SmoothScrollProvider";
+import { Footer3D } from "@/components/Navigation/Footer3D";
+import { TabProvider } from "@/context/TabContext";
 
 export const metadata: Metadata = {
-  title: "NAREN KG — AI / ML Developer & Automation Engineer",
+  title: "HarGi Agro Products — Premium Agro Products Exporter from India",
   description:
-    "Official Portfolio of NAREN KG. AI/ML Developer & Automation Engineer specializing in Deep Learning, Agentic AI, Computer Vision, and Autonomous Workflows. Proven expertise with 5+ production-ready AI agents deployed on Hugging Face Spaces.",
+    "HarGi Agro Products Private Limited is an India-based premier agro products company sourcing and exporting quality coconut derivatives, traditional jaggery, authentic spices, single-origin coffee, and superfoods to international buyers.",
   keywords: [
-    "NAREN KG",
-    "AI ML Developer",
-    "Automation Engineer",
-    "Deep Learning",
-    "Agentic AI",
-    "LangChain",
-    "LangGraph",
-    "PyTorch",
-    "TensorFlow",
-    "Computer Vision",
-    "Hugging Face Spaces",
-    "Python",
-    "FastAPI",
-    "Angular",
-    "PostgreSQL",
-    "Chroma DB",
-    "n8n",
+    "HarGi Agro",
+    "HarGi Agro Products Private Limited",
+    "hagitechsol.com",
+    "Coconut Products Exporter India",
+    "Virgin Coconut Oil",
+    "Traditional Jaggery Exporter",
+    "Indian Spices Exporter",
+    "Tellicherry Black Pepper",
+    "Alleppey Green Cardamom",
+    "Single Origin Coffee India",
+    "APEDA Certified Agro Exporter",
+    "Agro Products South India",
+    "Bulk Agro Importer",
   ],
-  authors: [{ name: "NAREN KG" }],
-  creator: "NAREN KG",
+  authors: [{ name: "HarGi Agro Products Private Limited" }],
+  creator: "HarGi Agro Products Private Limited",
   openGraph: {
-    title: "NAREN KG — AI / ML Developer & Automation Engineer",
+    title: "HarGi Agro Products — Premium Agro Products Exporter from India",
     description:
-      "Autonomous Intelligence. Scalable Systems. Limitless Innovation. Interactive portfolio showcasing Deep Learning models, 5+ Hugging Face AI Agents, and Computer Vision pipelines.",
+      "Natural Agro Products, Sourced with Care. Quality coconut products, traditional jaggery, authentic Indian spices, and single-origin coffee exported worldwide.",
+    url: "https://hagitechsol.com/",
+    siteName: "HarGi Agro Products",
     type: "website",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050505",
+  themeColor: "#1b1a18",
   width: "device-width",
   initialScale: 1,
 };
@@ -51,17 +47,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className="bg-[#050505] text-[#f5f5f5] antialiased selection:bg-brand-orange selection:text-white">
-        <SmoothScrollProvider>
-          <ModeProvider>
-            <SoundProvider>
-              <CustomCursor />
-              <Navbar />
-              <main className="relative">{children}</main>
-            </SoundProvider>
-          </ModeProvider>
-        </SmoothScrollProvider>
+    <html lang="en" className="dark scroll-smooth">
+      <body className="text-neutral-100 antialiased selection:bg-brand-emerald selection:text-black min-h-screen">
+        <TabProvider>
+          <Navbar />
+          <main className="relative min-h-[calc(100vh-80px)]">{children}</main>
+          <Footer3D />
+        </TabProvider>
       </body>
     </html>
   );
