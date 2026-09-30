@@ -7,6 +7,7 @@ import { Preloader } from "@/components/CanvasScroller/Preloader";
 import { CompanyVision3D } from "@/components/3D/CompanyVision3D";
 import { ProductShowcase3D } from "@/components/3D/ProductShowcase3D";
 import { Contact3D } from "@/components/3D/Contact3D";
+import StackSpread from "@/components/UI/stack-spread";
 
 export default function HomePage() {
   const [loadedFrames, setLoadedFrames] = useState(0);
@@ -34,8 +35,9 @@ export default function HomePage() {
           <CompanyVision3D />
         </section>
 
-        {/* Section 3: Products (61 Agro Products with Search & Categories) */}
+        {/* Section 3: Products (Interactive Stack Spread Showcase + Catalog Grid) */}
         <section id="products" className="relative w-full">
+          <StackSpread />
           <ProductShowcase3D />
         </section>
 

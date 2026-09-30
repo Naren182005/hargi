@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1b1a18",
+  themeColor: "#0f5132",
   width: "device-width",
   initialScale: 1,
 };
@@ -47,8 +47,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className="text-neutral-100 antialiased selection:bg-brand-emerald selection:text-black min-h-screen">
+    <html lang="en" className="scroll-smooth">
+      <body className="bg-[#f4f8f4] text-[#212529] antialiased min-h-screen">
         <TabProvider>
           <Navbar />
           <main className="relative min-h-[calc(100vh-80px)]">{children}</main>
