@@ -807,7 +807,7 @@ export const HARGI_ALL_PRODUCTS: HarGiCatalogItem[] = [
       "Cleaned",
       "Great for smoothies"
     ],
-    "image": "/products/nuts.jpg",
+    "image": "/products/chia-seeds.jpg",
     "accentColor": "#8b5cf6"
   }
 ];
