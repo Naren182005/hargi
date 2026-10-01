@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { ScrollyCanvas } from "@/components/CanvasScroller/ScrollyCanvas";
 import { HarGiOverlay } from "@/components/CanvasScroller/HarGiOverlay";
 import { Preloader } from "@/components/CanvasScroller/Preloader";
-import { CompanyVision3D } from "@/components/3D/CompanyVision3D";
 import { ProductShowcase3D } from "@/components/3D/ProductShowcase3D";
 import { Contact3D } from "@/components/3D/Contact3D";
 import StackSpread from "@/components/UI/stack-spread";
@@ -31,10 +30,8 @@ export default function HomePage() {
           </ScrollyCanvas>
         </section>
 
-        {/* Section 2: About (HarGi Agro Products Story, Strengths & Purpose) */}
-        <section id="about" className="relative w-full">
-          <CompanyVision3D />
-        </section>
+        {/* Anchor point for About button */}
+        <div id="about" />
 
         {/* Dynamic Velocity Marquee Ribbon 1 */}
         <div className="py-6 bg-[#f4f8f4] overflow-hidden border-y border-[#0f5132]/5">

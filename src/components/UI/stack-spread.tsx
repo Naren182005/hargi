@@ -103,7 +103,8 @@ const PARALLAX_SPRING = { stiffness: 90, damping: 22, mass: 0.6 };
 const parallaxDepth = (i: number, total: number) =>
   total <= 1 ? 1 : 0.55 + (i / (total - 1)) * 0.75;
 
-const DEFAULT_SUB = "Hand-picked, organically nurtured, and globally exported with unparalleled purity and freshness.";
+const DEFAULT_SUB =
+  "Rooted in Tamil Nadu's coconut heartland, we partner directly with local farmers to process and deliver world-class coconut derivatives and agro products with full farm-to-port traceability.";
 
 const RESPONSIVE = {
   desktop: {
@@ -375,10 +376,10 @@ export function StackSpreadStage({
               className="w-full whitespace-pre-line text-[4.2vw] font-extrabold leading-tight tracking-tight max-md:text-[8vw] font-sans drop-shadow-sm"
               style={{ color: textColor }}
             >
-              Nature&apos;s Finest:
+              HarGi Agro:
               <br />
               <span className="text-[#2d6a4f] font-light">
-                Premium Agro Exports
+                Premium Global Exports
               </span>
             </h2>
           )}
@@ -386,7 +387,7 @@ export function StackSpreadStage({
             <div className="w-full text-center">{subtitle}</div>
           ) : (
             <p
-              className="mt-[1.2vw] w-full max-w-[50ch] text-[1.1vw] leading-relaxed tracking-normal max-md:mt-3 max-md:text-[3.5vw] text-[#495057]"
+              className="mt-[1.2vw] w-full max-w-[54ch] text-[1.1vw] leading-relaxed tracking-normal max-md:mt-3 max-md:text-[3.5vw] text-[#495057]"
             >
               {DEFAULT_SUB}
             </p>
