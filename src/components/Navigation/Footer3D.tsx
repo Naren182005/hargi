@@ -91,9 +91,9 @@ export const Footer3D: React.FC = () => {
           </div>
 
           {/* Bottom Legal Copyright Bar */}
-          <div className="pt-2 flex items-center justify-center text-xs text-white/70 text-center">
-            <p>
-              © {new Date().getFullYear()} <span className="text-white font-semibold">HarGi Agro Products Private Limited</span>. All rights reserved.
+          <div className="pt-2 flex items-center justify-center text-xs sm:text-sm text-white font-medium text-center">
+            <p className="drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)] tracking-wide">
+              © {new Date().getFullYear()} <span className="text-white font-bold">HarGi Agro Products Private Limited</span>. All rights reserved.
             </p>
           </div>
         </div>
