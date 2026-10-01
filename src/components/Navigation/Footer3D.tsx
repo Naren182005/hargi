@@ -1,10 +1,7 @@
 "use client";
 
 import React from "react";
-import {
-  Phone,
-  Sparkles,
-} from "lucide-react";
+import { Phone } from "lucide-react";
 
 export const Footer3D: React.FC = () => {
   return (
@@ -73,9 +70,8 @@ export const Footer3D: React.FC = () => {
                   href="https://wa.me/917779955393?text=Hello%20HarGi%20Agro%20Team,%20I%20would%20like%20to%20request%20an%20export%20quotation%20for%20agro%20products."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl bg-[#4d7c0f] hover:bg-[#3f6212] text-white font-bold text-xs sm:text-sm shadow-lg shadow-black/25 hover:shadow-black/40 transition-all duration-300 transform hover:-translate-y-0.5 border border-white/20"
+                  className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3.5 rounded-2xl bg-[#4d7c0f] hover:bg-[#3f6212] text-white font-bold text-xs sm:text-sm shadow-lg shadow-black/25 hover:shadow-black/40 transition-all duration-300 transform hover:-translate-y-0.5 border border-white/20"
                 >
-                  <Sparkles className="w-4 h-4 text-[#bef264]" />
                   <span>Request Export RFQ</span>
                 </a>
 

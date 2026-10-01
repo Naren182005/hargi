@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Phone, Mail, Clock, ArrowRight, Sparkles } from "lucide-react";
+import { Phone, Mail, Clock, ArrowRight } from "lucide-react";
 import { FlowingMenu } from "@/components/UI/FlowingMenu";
 import PixelCard from "@/components/UI/PixelCard";
 import BorderGlow from "@/components/UI/BorderGlow";
@@ -233,8 +233,7 @@ export const Contact3D: React.FC = () => {
         {/* Interactive 3D Flowing Menu Component for Fast Trade Reach    */}
         {/* ============================================================ */}
         <div className="space-y-4 max-w-4xl mx-auto pt-4">
-          <div className="flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-wider text-[#0f5132]">
-            <Sparkles className="w-4 h-4 text-[#15803d]" />
+          <div className="flex items-center justify-center text-xs font-bold uppercase tracking-wider text-[#0f5132]">
             <span>Interactive Quick Trade &amp; Export Channels</span>
           </div>
 
