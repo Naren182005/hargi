@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
@@ -18,20 +18,52 @@ export const Navbar: React.FC = () => {
     { label: "Contact", id: "contact" },
   ];
 
+  // ScrollSpy to track active section in view
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 140;
+
+      for (const item of [...navItems].reverse()) {
+        const el = document.getElementById(item.id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(item.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const scrollToSection = (id: string) => {
     setActiveSection(id);
     setMobileMenuOpen(false);
+
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
-    } else if (id === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      const headerOffset = 85;
+      const elementPosition = el.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
   return (
     <>
-      {/* Full-Width Solid White Top Header as in the reference image */}
+      {/* Full-Width Solid White Top Header */}
       <header
         style={{ backgroundColor: "#ffffff" }}
         className="fixed top-0 left-0 right-0 z-[100] w-full bg-white border-b border-neutral-200 shadow-sm transition-all"
@@ -97,7 +129,11 @@ export const Navbar: React.FC = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="py-3 px-4 rounded-xl text-left font-sans text-base transition-colors text-neutral-800 hover:bg-neutral-50 hover:text-[#0f5132] bg-transparent border-none cursor-pointer font-medium"
+                  className={`py-3 px-4 rounded-xl text-left font-sans text-base transition-colors border-none cursor-pointer font-medium ${
+                    activeSection === item.id
+                      ? "bg-[#0f5132] text-white"
+                      : "text-neutral-800 hover:bg-neutral-50 hover:text-[#0f5132] bg-transparent"
+                  }`}
                 >
                   {item.label}
                 </button>
@@ -109,4 +145,3 @@ export const Navbar: React.FC = () => {
     </>
   );
 };
-

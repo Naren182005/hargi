@@ -3,6 +3,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navigation/Navbar";
 import { Footer3D } from "@/components/Navigation/Footer3D";
 import { TabProvider } from "@/context/TabContext";
+import { DevAutoRefresh } from "@/components/DevAutoRefresh";
 
 export const metadata: Metadata = {
   title: "HarGi Agro Products — Premium Agro Products Exporter from India",
@@ -49,6 +50,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className="bg-[#f4f8f4] text-[#212529] antialiased min-h-screen">
+        <DevAutoRefresh />
         <TabProvider>
           <Navbar />
           <main className="relative min-h-[calc(100vh-80px)]">{children}</main>

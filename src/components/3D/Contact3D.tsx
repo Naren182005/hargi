@@ -250,11 +250,6 @@ export const Contact3D: React.FC = () => {
             />
           </div>
         </div>
-
-        {/* Footer Sub-caption */}
-        <p className="text-center text-xs text-[#6c757d] font-sans">
-          Based in Tamil Nadu, India – Supplying premium coconut products worldwide
-        </p>
       </div>
     </section>
   );
