@@ -1,8 +1,10 @@
 import type { Metadata, Viewport } from "next";
+import "lenis/dist/lenis.css";
 import "./globals.css";
 import { Navbar } from "@/components/Navigation/Navbar";
 import { Footer3D } from "@/components/Navigation/Footer3D";
 import { TabProvider } from "@/context/TabContext";
+import { SmoothScrollProvider } from "@/components/UI/SmoothScrollProvider";
 import { DevAutoRefresh } from "@/components/DevAutoRefresh";
 
 export const metadata: Metadata = {
@@ -48,15 +50,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body className="bg-[#f4f8f4] text-[#212529] antialiased min-h-screen">
         <DevAutoRefresh />
-        <TabProvider>
-          <Navbar />
-          <main className="relative min-h-[calc(100vh-80px)]">{children}</main>
-          <Footer3D />
-        </TabProvider>
+        <SmoothScrollProvider>
+          <TabProvider>
+            <Navbar />
+            <main className="relative min-h-[calc(100vh-80px)]">{children}</main>
+            <Footer3D />
+          </TabProvider>
+        </SmoothScrollProvider>
       </body>
     </html>
   );
 }
+

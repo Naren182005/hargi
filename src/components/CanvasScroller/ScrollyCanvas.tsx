@@ -40,11 +40,11 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
     offset: ["start start", "end end"],
   });
 
-  // Inertia spring smoothing for buttery 60-120 FPS glide without discrete wheel jumps
+  // Inertia spring smoothing tuned to track Lenis momentum without lag or oscillation
   const smoothProgress = useSpring(rawScrollProgress, {
-    stiffness: 90,
-    damping: 24,
-    mass: 0.22,
+    stiffness: 140,
+    damping: 26,
+    mass: 0.1,
     restDelta: 0.0001,
   });
 
@@ -116,10 +116,12 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
       offsetX = (w - renderW) / 2;
     }
 
-    ctx.fillStyle = "#050505";
-    ctx.fillRect(0, 0, w, h);
-    ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = "high";
+    // Only clear letterbox bars if the image does not cover the full canvas
+    if (renderW < w || renderH < h || offsetX > 0 || offsetY > 0) {
+      ctx.fillStyle = "#050505";
+      ctx.fillRect(0, 0, w, h);
+    }
+
     ctx.drawImage(img, 0, 0, imgW, imgH, offsetX, offsetY, renderW, renderH);
   };
 
@@ -148,7 +150,7 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
     renderFrame(currentFrameRef.current);
   }, [renderFrame]);
 
-  // Preload all 51 brand images into memory
+  // Preload and asynchronously GPU-decode all 51 brand images into memory for zero frame drops
   useEffect(() => {
     imagesRef.current = new Array(totalFrames).fill(null);
     let loadedCounter = 0;
@@ -158,29 +160,40 @@ export const ScrollyCanvas: React.FC<ScrollyCanvasProps> = ({
       return `/sequence/frame_${padded}.jpg`;
     };
 
+    // Helper to decode image off main thread to prevent scrolling jank
+    const safeDecodeAndStore = async (img: HTMLImageElement, index: number) => {
+      try {
+        if ("decode" in img) {
+          await img.decode();
+        }
+      } catch {
+        // Fallback silently if browser rejects decode promise
+      }
+      imagesRef.current[index] = img;
+      loadedCounter++;
+      onLoadingProgress?.(loadedCounter, totalFrames);
+
+      if (index === 0) {
+        setIsFirstFrameLoaded(true);
+        handleResize();
+        renderFrame(0);
+      } else if (currentFrameRef.current === index) {
+        renderFrame(index);
+      }
+    };
+
     // Priority load: frame 0 first for instant paint
     const firstImg = new Image();
     firstImg.src = getFramePath(0);
     firstImg.onload = () => {
-      imagesRef.current[0] = firstImg;
-      loadedCounter++;
-      setIsFirstFrameLoaded(true);
-      handleResize();
-      renderFrame(0);
-      onLoadingProgress?.(loadedCounter, totalFrames);
+      safeDecodeAndStore(firstImg, 0);
 
-      // Then load remaining 50 frames progressively
+      // Concurrently load remaining 50 frames with decode caching
       for (let i = 1; i < totalFrames; i++) {
         const img = new Image();
         img.src = getFramePath(i);
         img.onload = () => {
-          imagesRef.current[i] = img;
-          loadedCounter++;
-          onLoadingProgress?.(loadedCounter, totalFrames);
-
-          if (currentFrameRef.current === i) {
-            renderFrame(i);
-          }
+          safeDecodeAndStore(img, i);
         };
       }
     };

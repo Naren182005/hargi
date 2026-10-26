@@ -66,7 +66,7 @@ const DEFAULT_CARDS: StackSpreadCard[] = [
     stackOffset: { x: -6, y: 10 },
     stackRotate: 6,
     target: { x: -36, y: 32, rotate: -4, scale: 1.0, w: 19, h: 25 },
-    targetSm: { x: -22, y: 20 },
+    targetSm: { x: -22, y: 40 },
     z: 7,
   },
   // 7: Bottom-centre Cashews (Centered)
@@ -124,11 +124,20 @@ const RESPONSIVE = {
 function useResponsive() {
   const [r, setR] = useState(RESPONSIVE.desktop);
   useEffect(() => {
-    const mq = window.matchMedia("(pointer: coarse)");
-    const read = () => setR(mq.matches ? RESPONSIVE.small : RESPONSIVE.desktop);
+    const mq = window.matchMedia("(max-width: 768px), (pointer: coarse)");
+    const read = () =>
+      setR(
+        window.innerWidth < 768 || mq.matches
+          ? RESPONSIVE.small
+          : RESPONSIVE.desktop
+      );
     read();
     mq.addEventListener("change", read);
-    return () => mq.removeEventListener("change", read);
+    window.addEventListener("resize", read);
+    return () => {
+      mq.removeEventListener("change", read);
+      window.removeEventListener("resize", read);
+    };
   }, []);
   return r;
 }
@@ -335,11 +344,17 @@ export function StackSpreadStage({
     offset: ["start start", "end end"],
   });
 
-  const progress = useTransform(
+  const rawProgress = useTransform(
     scrollYProgress,
     [0, SCATTER_START, SCATTER_END, 1],
     [0, 0, 1, 1],
   );
+
+  const progress = useSpring(rawProgress, {
+    stiffness: 140,
+    damping: 26,
+    mass: 0.1,
+  });
 
   const [spread, setSpread] = useState(false);
   useMotionValueEvent(progress, "change", (p) => {

@@ -44,8 +44,14 @@ export const Navbar: React.FC = () => {
     setActiveSection(id);
     setMobileMenuOpen(false);
 
+    const lenis = typeof window !== "undefined" ? (window as any).__lenis : null;
+
     if (id === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (lenis) {
+        lenis.scrollTo(0, { duration: 1.2 });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
       return;
     }
 
@@ -54,10 +60,14 @@ export const Navbar: React.FC = () => {
       const headerOffset = 85;
       const elementPosition = el.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+      if (lenis) {
+        lenis.scrollTo(offsetPosition, { duration: 1.2 });
+      } else {
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
     }
   };
 

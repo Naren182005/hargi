@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 import { HARGI_ALL_PRODUCTS, HarGiCatalogItem } from "@/data/hargiProductsData";
 
 interface ProductCard3DProps {
@@ -12,47 +12,18 @@ interface ProductCard3DProps {
 const ProductCard3D: React.FC<ProductCard3DProps> = ({ product, index }) => {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ["start end", "end start"],
-  });
-
-  // Inertia spring physics for buttery smooth motion
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 90,
-    damping: 24,
-    restDelta: 0.001,
-  });
-
-  const colIndex = index % 3; // 0 = Left (Cumin), 1 = Center (Coco Peat), 2 = Right (Black Pepper)
-
-  // 1. Left Column: Drifts towards the LEFT (-X) with subtle 3D outward rotation
-  const leftX = useTransform(smoothProgress, [0, 0.45, 1], [30, 0, -80]);
-  const leftRotateY = useTransform(smoothProgress, [0, 0.45, 1], [4, 0, -8]);
-  const leftRotateZ = useTransform(smoothProgress, [0, 0.45, 1], [1.5, 0, -3]);
-
-  // 2. Center Column: Floats UP (-Y) with elevated 3D scale
-  const centerY = useTransform(smoothProgress, [0, 0.45, 1], [50, 0, -90]);
-  const centerScale = useTransform(smoothProgress, [0, 0.45, 1], [0.96, 1, 1.03]);
-
-  // 3. Right Column: Drifts towards the RIGHT (+X) with subtle 3D outward rotation
-  const rightX = useTransform(smoothProgress, [0, 0.45, 1], [-30, 0, 80]);
-  const rightRotateY = useTransform(smoothProgress, [0, 0.45, 1], [-4, 0, 8]);
-  const rightRotateZ = useTransform(smoothProgress, [0, 0.45, 1], [-1.5, 0, 3]);
-
-  // Apply column-specific 3D transform properties
-  const motionStyle =
-    colIndex === 0
-      ? { x: leftX, rotateY: leftRotateY, rotateZ: leftRotateZ }
-      : colIndex === 1
-      ? { y: centerY, scale: centerScale }
-      : { x: rightX, rotateY: rightRotateY, rotateZ: rightRotateZ };
-
   return (
     <motion.div
       ref={cardRef}
-      style={motionStyle}
-      className="will-change-transform [transform-style:preserve-3d]"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{
+        duration: 0.5,
+        delay: (index % 3) * 0.08,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="h-full"
     >
       <div className="bg-white rounded-[28px] overflow-hidden shadow-md hover:shadow-2xl border border-neutral-200/80 flex flex-col transition-all duration-300 transform hover:-translate-y-2 p-4 sm:p-5 h-full">
         {/* Product Image + Category Badge */}
@@ -103,11 +74,11 @@ export const ProductShowcase3D: React.FC = () => {
     <section
       id="products-catalog"
       style={{ backgroundColor: "#f4f8f4" }}
-      className="relative w-full pt-20 sm:pt-28 pb-24 sm:pb-36 px-6 sm:px-12 md:px-16 lg:px-20 xl:px-28 text-[#212529] overflow-hidden [perspective:1400px]"
+      className="relative w-full pt-20 sm:pt-28 pb-24 sm:pb-36 px-6 sm:px-12 md:px-16 lg:px-20 xl:px-24 text-[#212529] overflow-hidden"
     >
-      <div className="w-full max-w-[1600px] mx-auto">
-        {/* Product Grid with 3D Scroll Physics & Huge Spacing */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 sm:gap-x-20 lg:gap-x-28 xl:gap-x-36 gap-y-16 sm:gap-y-24 [transform-style:preserve-3d]">
+      <div className="w-full max-w-[1500px] mx-auto">
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 lg:gap-10 xl:gap-12 gap-y-10 sm:gap-y-14">
           {HARGI_ALL_PRODUCTS.map((product, index) => (
             <ProductCard3D key={product.id} product={product} index={index} />
           ))}
