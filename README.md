@@ -1,19 +1,19 @@
-# NAREN KG — Personal Portfolio
+# HarGi Agro Products — Interactive Scrollytelling Web Experience
 
-> **AI / ML Developer & Automation Engineer**  
-> An Awwwards-inspired scrollytelling web experience featuring 60 FPS 2K neural canvas scrubbing, real-time computer vision inference inspector, interactive developer terminal emulator, and deep learning project showcase.
+> **Natural Agro Products, Sourced with Care.**  
+> An Awwwards-inspired scrollytelling web platform for **HarGi Agro Products Private Limited**, showcasing South India's premium agricultural exports (coconut derivatives, traditional jaggery, aromatic spices, and superfoods) through 60 FPS HTML5 canvas frame scrubbing, interactive physics-based card spreads, and dynamic scroll interactions.
 
 ---
 
 ## 🌟 Key Highlights & Features
 
-- 🤖 **Agentic AI & Deep Learning Ecosystem**: Showcasing 5+ production-ready AI agents deployed on Hugging Face Spaces and Computer Vision proctoring systems.
-- 🎞️ **60 FPS 2K Scrollytelling Sequence**: 180 high-fidelity frames scrubbed smoothly via HTML5 Canvas with physics-based spring inertia (`useSpring`).
-- 🎛️ **Discipline Mode Switcher**: Seamless 3-way toggle between **AI / ML**, **Dual Synergy**, and **Dev & Automation** perspectives with dynamic UI accent theming.
-- 👁️ **AI Neural Perception Layer Inspector**: Live split-view slider comparing RAW Camera input directly against real-time AI perception (3D face landmark mesh, gaze tracking, lip-sync status, and device localization).
-- 💻 **Interactive Developer Terminal**: Fully functional shell emulator (`whoami`, `skills`, `projects`, `education`, `experience`, `achievements`, `certifications`, `contact`, `clear`) with live command execution and quick command chips.
-- ⚡ **Lenis Momentum Scrolling**: Ultra-smooth inertia scrolling synchronized with canvas frame rendering.
-- 📱 **Fully Responsive**: Optimized for desktop monitors, laptops, tablets, and mobile devices.
+- 🎞️ **60 FPS Canvas Scrollytelling**: 51 high-resolution 2K sequence frames rendered seamlessly onto an HTML5 Canvas with buttery spring inertia (`useSpring`) and hardware-accelerated device pixel ratio scaling.
+- 🌾 **Interactive Stack-Spread Showcase**: Physics-driven spreading card stack spotlighting harvest essentials (Green Cardamom, Specialty Coffee, Malabar Black Pepper, Turmeric, Coconuts, Coco Peat, Cashews, and Ceylon Cinnamon) with touch and desktop responsive adapters.
+- ⚡ **Dual Velocity Marquee Ribbons**: Infinite scroll-velocity typography banners with direction reversals and momentum-accelerated typography.
+- 📦 **Stably Aligned 3D Product Catalog Grid**: Responsive 3-column agro export catalog featuring Indian Spices, Coconut Derivatives, Jaggery, and Superfoods with smooth staggered reveals and interactive card elevation states.
+- 🚢 **Global Maritime Trade Desk**: Direct inquiry terminal and business contact portal integrated with APEDA, FSSAI, Spices Board India, and Coconut Development Board export credentials.
+- 🌊 **Lenis Momentum Scrolling**: Ultra-smooth inertia scroll synchronization across all section layers.
+- 📱 **Fully Responsive**: Pixel-perfect layout tailored for 4K desktop screens, laptops, tablets, and mobile smartphones.
 
 ---
 
@@ -21,30 +21,82 @@
 
 - **Framework**: [Next.js 14](https://nextjs.org/) (App Router, Server & Client Components)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + Custom Glassmorphism Utilities
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + Custom Design Tokens (`--accent-green: #0f5132`, `--accent-emerald: #15803d`)
 - **Animation & Physics**: [Framer Motion](https://www.framer.com/motion/)
-- **Smooth Scroll**: [@studio-freight/lenis](https://github.com/darkroomengineering/lenis)
+- **Smooth Scroll**: [Lenis](https://github.com/darkroomengineering/lenis)
 - **Icons**: [Lucide React](https://lucide.dev/)
+- **Canvas Rendering**: Native HTML5 Canvas 2D with requestAnimationFrame sync
+
+---
+
+## 📂 Project Structure
+
+```text
+Personal-portfolio-main/
+├── public/
+│   ├── sequence/               # 51 high-resolution scrollytelling frame images (frame_0001.jpg - frame_0051.jpg)
+│   └── products/               # High-res agro product imagery
+├── src/
+│   ├── app/
+│   │   ├── globals.css         # Tailwind directives, CSS variables, and glassmorphism styling
+│   │   ├── layout.tsx          # Root layout with fonts and metadata
+│   │   └── page.tsx            # Main scrollytelling page flow
+│   ├── components/
+│   │   ├── 3D/
+│   │   │   ├── Contact3D.tsx         # Trade desk contact form & business hours
+│   │   │   ├── HeroSplit3D.tsx       # 3D interactive split accordion pillars
+│   │   │   └── ProductShowcase3D.tsx # 3-column product catalog showcase
+│   │   ├── CanvasScroller/
+│   │   │   ├── HarGiOverlay.tsx      # Scrollytelling text & badge overlay
+│   │   │   └── ScrollyCanvas.tsx     # 51-frame canvas rendering engine
+│   │   ├── Navigation/
+│   │   │   ├── Navbar.tsx            # Sticky frosted-glass navigation bar
+│   │   │   └── Footer3D.tsx          # Brand footer with corporate links
+│   │   ├── UI/
+│   │   │   ├── ScrollVelocity.tsx    # Marquee velocity ribbon component
+│   │   │   ├── SmoothScrollProvider.tsx # Lenis smooth scroll provider
+│   │   │   └── stack-spread.tsx      # Interactive scatter-spread card component
+│   │   └── lightswind/
+│   │       └── cinematic-scroll.tsx  # Progressive scroll blur layer
+│   └── data/
+│       ├── hargiData.ts         # Company certifications, stats, and pillar items
+│       └── hargiProductsData.ts # Catalog items, specifications, and categories
+├── package.json
+├── tailwind.config.ts
+└── tsconfig.json
+```
 
 ---
 
 ## 🚀 Getting Started
 
+### Prerequisites
+
+Ensure you have [Node.js](https://nodejs.org/) (v18.17 or higher recommended) installed.
+
 ### Installation
 
-1. Install dependencies:
+1. Clone or open the repository:
+```bash
+cd Personal-portfolio-main
+```
+
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Start the local development server:
+3. Start the local development server:
 ```bash
 npm run dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Open your browser and navigate to:
+```text
+http://localhost:3000
+```
 
-### Building for Production
+### Production Build
 
 ```bash
 npm run build
@@ -53,11 +105,23 @@ npm run start
 
 ---
 
-## 📬 Contact & Connect
+## 🌾 Featured Agro Products
 
-- **Name**: NAREN KG
-- **Email**: naren1872005@zohomail.in
-- **Phone**: +91 9597400881
-- **LinkedIn**: [linkedin.com/in/naren-kg](https://linkedin.com)
-- **GitHub**: [github.com/narenkg](https://github.com)
-- **Location**: Tamil Nadu, India
+| Category | Products | Primary Origins |
+| :--- | :--- | :--- |
+| **Coconut Derivatives** | Virgin Coconut Oil, Desiccated Flakes, Coco Peat Blocks, Shell Charcoal | Pollachi, Tamil Nadu & Western Ghats |
+| **Traditional Jaggery** | Pure Cane Cubes, Organic Jaggery Powder, Palm Karupatti | Erode & Salem Agricultural Belt |
+| **Indian Spices** | Green Cardamom, Malabar Black Pepper, Pure Turmeric, Mustard Seeds, Cumin | Idukki, Western Ghats & Guntur |
+| **Nuts & Dried Fruits** | Export Grade Cashew Nuts, Golden Raisins | Panruti & Sangli |
+
+---
+
+## 📬 Corporate & Trade Desk Contact
+
+- **Company**: HarGi Agro Products Private Limited
+- **Brand**: HarGi Agro
+- **Headquarters**: South India Agricultural Corridor, Tamil Nadu, India
+- **Phone / WhatsApp**: +91 77799 55393
+- **Email**: info@hagitechsol.com
+- **Website**: [hagitechsol.com](https://hagitechsol.com/)
+- **Export Seaports**: Tuticorin Port (V.O. Chidambaranar), Cochin Seaport, Chennai Port
